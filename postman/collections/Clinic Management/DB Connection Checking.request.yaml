@@ -1,0 +1,5 @@
+$kind: http-request
+name: DB Connection Checking
+url: "{{BASE_URL}}/health/db"
+method: GET
+order: 1788100766877

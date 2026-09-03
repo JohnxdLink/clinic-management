@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Britech College | Student Portal</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/pages/sign-in.css" />
+  </head>
+
+  <body>
+    <!-- BACKGROUND -->
+    <div class="background">
+      <div class="circle one"></div>
+      <div class="circle two"></div>
+      <div class="circle three"></div>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+      <div class="brand">
+        <img src="../assets/images/logo/britech-logo.png" alt="Britech logo" width="80" height="80" />
+        BRITECH
+      </div>
+
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Programs</a>
+        <a href="#" class="nav-button">Student Portal</a>
+      </nav>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+      <div class="main-wrapper">
+        <!-- LEFT SIDE -->
+        <div class="intro">
+          <div class="badge">
+            <span></span>
+            BRITECH STUDENT PORTAL
+          </div>
+
+          <h1>
+            Learn.<br />
+            Create.<br />
+            <span>Inspire.</span>
+          </h1>
+
+          <p class="intro-text">
+            Welcome to Britech College — a place where technology, creativity and education come together. Sign in to
+            access your student portal and continue your learning journey.
+          </p>
+
+          <div class="features">
+            <div class="feature">🎓 Student Portal</div>
+
+            <div class="feature">📚 Online Learning</div>
+
+            <div class="feature">💻 Technology</div>
+
+            <div class="feature">🌟 Innovation</div>
+          </div>
+        </div>
+
+        <!-- LOGIN CARD -->
+        <div class="login-card">
+          <!-- LOGO -->
+          <div class="logo-area">
+            <div class="logo-wrapper">
+              <!-- Britech Logo -->
+              <img class="britech-logo" src="../assets/images/logo/britech-logo.png" alt="Britech logo" />
+            </div>
+
+            <div class="college-name">Britech College</div>
+
+            <div class="college-subtitle">Knowledge • Technology • Excellence</div>
+          </div>
+
+          <!-- LOGIN -->
+          <div class="login-title">Welcome Back 👋</div>
+
+          <div class="login-description">Enter your details to access your account.</div>
+
+          <form id="loginForm">
+            <!-- EMAIL -->
+            <div class="input-group">
+              <label for="email"> Email Address </label>
+
+              <div class="input-wrapper">
+                <input type="email" id="email" placeholder="student@britech.edu" required />
+
+                <span class="input-icon"> ✉ </span>
+              </div>
+            </div>
+
+            <!-- PASSWORD -->
+            <div class="input-group">
+              <label for="password"> Password </label>
+
+              <div class="input-wrapper">
+                <input type="password" id="password" placeholder="Enter your password" required />
+
+                <span class="input-icon" id="togglePassword" style="cursor: pointer"> 👁 </span>
+              </div>
+            </div>
+
+            <!-- OPTIONS -->
+            <div class="options">
+              <label class="remember">
+                <input type="checkbox" />
+
+                Remember me
+              </label>
+
+              <a href="#" class="forgot"> Forgot password? </a>
+            </div>
+
+            <!-- BUTTON -->
+            <button type="submit" class="login-button">SIGN IN TO BRITECH</button>
+
+            <!-- MESSAGE -->
+            <div id="message"></div>
+          </form>
+
+          <!-- FOOTER -->
+          <div class="card-footer">
+            New to Britech?
+
+            <a href="#"> Create an account </a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      /* ===========================
+           PASSWORD SHOW / HIDE
+        =========================== */
+
+      const password = document.getElementById("password");
+
+      const toggle = document.getElementById("togglePassword");
+
+      toggle.addEventListener("click", () => {
+        if (password.type === "password") {
+          password.type = "text";
+          toggle.textContent = "🙈";
+        } else {
+          password.type = "password";
+          toggle.textContent = "👁";
+        }
+      });
+
+      /* ===========================
+           LOGIN
+        =========================== */
+
+      const form = document.getElementById("loginForm");
+
+      const message = document.getElementById("message");
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const email = document.getElementById("email").value.trim();
+
+        const pass = document.getElementById("password").value.trim();
+
+        if (!email || !pass) {
+          message.textContent = "Please enter your email and password.";
+
+          message.className = "error";
+
+          return;
+        }
+
+        // DEMO LOGIN
+        message.textContent = "✓ Login successful! Welcome to Britech College.";
+
+        message.className = "success";
+
+        // In a real website, this is where
+        // you would connect your backend/database.
+      });
+    </script>
+  </body>
+</html>

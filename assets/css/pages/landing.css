@@ -1,0 +1,31 @@
+@import url("../layout/header.css");
+@import url("../layout/footer.css");
+@import url("../layout/main-container.css");
+@import url("../component/loader/skeleton.css");
+@import url("../component/buttons/primary-button.css");
+@import url("../component/buttons/secondary-button.css");
+@import url("../component/buttons/ghost-button.css ");
+
+.offer-section {
+  width: 300;
+}
+
+.illustration-floating {
+  animation: illustration-float 3s ease-in-out infinite;
+}
+
+.work-card-active:hover {
+  background-color: var(--color-warning);
+  transition: background-color var(--transition-normal);
+}
+
+@keyframes illustration-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+}

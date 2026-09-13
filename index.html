@@ -6,36 +6,205 @@
     <title>Britech Clinic Management system</title>
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="./assets/css/pages/landing.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
   </head>
   <body>
-    <header>
-      <div class="logo">Britech <span>Clinic</span></div>
+    <header class="p-5 d-flex justify-between items-center flex-row bg-warning shadow header__h-10">
+      <img class="w-96 h-auto" src="./assets/images/logo/britech-logo.png" alt="" />
 
-      <nav>
-        <a href="Home">Home</a>
-        <a href="About">About</a>
-        <a href="Features">Features</a>
-        <a href="Services">Services</a>
-        <a href="Login">Login</a>
-      </nav>
+      <div class="d-flex flex-row items-center">
+        <a class="btn-ghost" href="#home">Home</a>
+        <a class="btn-ghost" href="#about">About</a>
+        <a class="btn-ghost" href="#features">Feature</a>
+        <a class="btn-ghost" href="#how">How it works</a>
+      </div>
+
+      <a class="btn-primary" href="./auth/sign-in.html">Sign In </a>
     </header>
 
-    <h1>
-      Clinic
-      <span>Management</span>
-    </h1>
+    <main class="px-10 pb-16 d-flex flex-column gap-16 main-container__h-84">
+      <section id="home" class="pt-16 d-flex flex-row">
+        <article class="d-flex flex-column flex-1 gap-2">
+          <div>
+            <h1 class="text-40">Clinic Modern Information</h1>
+            <h1 class="text-40">And Services System</h1>
+            <h1 class="text-40">At Britech College</h1>
+          </div>
 
-    <p>
-      A modern system that helps Britech College manage patient information, clinic visits, records, services, and
-      reports efficiently.
-    </p>
+          <p class="text-md text-gray">
+            A modern System that helps the school clinic manages patient informations, records services, and reports
+            more effiently.
+          </p>
 
-    <div class="hero-bottons">
-      <a href="#features" class="btn btn-primary">GET STARTED</a>
-      <a href="#about" class="btn">LEARN MORE</a>
-      <a href="system" class="btn">CLINIC SYSTEM UI</a>
+          <div class="d-flex flex-row gap-3">
+            <a class="btn-primary" href="./auth/sign-up.html">Get Started</a>
+            <a class="btn-secondary" href="#features">Learn More</a>
+          </div>
+        </article>
 
-      <div class="hero-icon"></div>
-    </div>
+        <article class="h-480 d-flex flex-row flex-1 gap-5">
+          <!-- You have to remove the skeleton on this once you are about to add an image -->
+          <div class="flex-1 bg-light-gray rounded-md skeleton">
+            <img src="w-100 h-100" alt="Clinic picture" />
+          </div>
+
+          <div class="d-flex flex-1 flex-column gap-5">
+            <div class="flex-1 bg-light-gray rounded-md skeleton">
+              <img src="w-100 h-100" alt="Clinic picture" />
+            </div>
+            <div class="flex-1 bg-light-gray rounded-md skeleton">
+              <img src="w-100 h-100" alt="Clinic picture" />
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section id="about" class="d-flex flex-column gap-3">
+        <article class="d-flex flex-column items-center gap-3">
+          <h1 class="text-32">Why does this matter?</h1>
+          <p class="w-1/2 text-md text-center text-gray">
+            The System helps solve common clinic problems, by making information easier to record, organize, access and
+            manage
+          </p>
+        </article>
+
+        <article class="px-16 d-flex flex-row flex-1 gap-5">
+          <div class="p-5 h-256 d-flex flex-column flex-1 gap-2 rounded-md shadow bg-light">
+            <div class="d-flex flex-row items-center gap-3">
+              <i class="text-40 text-secondary fa-regular fa-folder-open"></i>
+              <p class="text-md">Problem 1 <br />Manual Records</p>
+            </div>
+
+            <p class="text-md text-gray">Information is written manually and can be lost and hard to find.</p>
+          </div>
+
+          <div class="p-5 h-256 d-flex flex-column flex-1 gap-2 rounded-md shadow bg-warning">
+            <div class="d-flex flex-row items-center gap-3">
+              <i class="text-40 text-secondary fa-solid fa-clock"></i>
+              <p class="text-md">Problem 2 <br />Slow Process</p>
+            </div>
+
+            <p class="text-md text-gray">Paperwork takes time and delay clinic operations.</p>
+          </div>
+
+          <div class="p-5 h-256 d-flex flex-column flex-1 gap-2 rounded-md shadow bg-light">
+            <div class="d-flex flex-row items-center gap-3">
+              <i class="text-40 text-secondary fa-solid fa-lock"></i>
+              <p class="text-md">Problem 3 <br />Hard To Access</p>
+            </div>
+
+            <p class="text-md text-gray">Important records are difficult to access when needed.</p>
+          </div>
+        </article>
+      </section>
+
+      <section id="features" class="d-flex flex-row items-center justify-center gap-5">
+        <article class="h-100 d-flex flex-1 flex-column items-end">
+          <h1 class="text-32">What we <br />can offer?</h1>
+        </article>
+        <article class="w-1/2 h-320 d-flex flex-column gap-3">
+          <div class="h-100 d-flex flex-row gap-3">
+            <div class="p-3 d-flex bg-primary flex-1 flex-row items-center bg-primary shadow rounded-md gap-2">
+              <i class="text-40 fa-solid fa-hospital-user"></i>
+              <div>
+                <p class="text-lg text-md">Student Reports</p>
+                <p class="text-md text-gray">Organize detailed information.</p>
+              </div>
+            </div>
+            <div class="p-3 d-flex flex-1 flex-row items-center shadow rounded-md gap-2">
+              <i class="text-40 text-primary fa-solid fa-stethoscope"></i>
+
+              <div>
+                <p class="text-lg text-md">Clinic Services</p>
+                <p class="text-md text-gray">Manage clinic visits and services.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="h-100 d-flex flex-row gap-3">
+            <div class="p-3 d-flex flex-1 flex-row items-center shadow rounded-md gap-2">
+              <i class="text-40 text-primary fa-solid fa-chart-simple"></i>
+
+              <div>
+                <p class="text-lg text-md">Reports</p>
+                <p class="text-md text-gray">Generate and view clinic reports.</p>
+              </div>
+            </div>
+            <div class="p-3 d-flex flex-1 flex-row items-center bg-primary shadow rounded-md gap-2">
+              <i class="text-40 fa-solid fa-table-cells-column-lock"></i>
+
+              <div>
+                <p class="text-lg text-md">Secure Information</p>
+                <p class="text-md text-gray">Keep information organized and secure.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="d-flex flex-1">
+          <img class="illustration-floating" src="./assets/images/illustrations/offers.svg" alt="" />
+        </article>
+      </section>
+
+      <section id="how" class="d-flex flex-column items-center justify-center">
+        <h1 class="text-32">How it works?</h1>
+        <p class="text-md text-center text-gray">Simple. Fast. Easy</p>
+
+        <article class="p-4 w-100 h-480 d-flex flex-row items-center justify-center gap-5">
+          <div
+            class="p-5 w-1/5 h-100 d-flex flex-column items-start shadow rounded-md border border-light-gray work-card-active"
+          >
+            <div class="w-48 h-48 d-flex flex-row items-center justify-center bg-secondary radius-full">
+              <h1 class="text-white text-32">1</h1>
+            </div>
+            <div class="pt-16 w-100 h-100 d-flex flex-column items-center gap-4">
+              <i class="text-40 text-secondary fa-solid fa-file-medical"></i>
+
+              <p class="text-md text-center text-gray">
+                Record information, <br />enter student and <br />
+                clinic data
+              </p>
+            </div>
+          </div>
+
+          <i class="text-2xl text-gray fa-solid fa-circle-arrow-right"></i>
+
+          <div
+            class="p-5 w-1/5 h-100 d-flex flex-column items-start shadow rounded-md border border-light-gray work-card-active"
+          >
+            <div class="w-48 h-48 d-flex flex-row items-center justify-center bg-secondary radius-full">
+              <h1 class="text-white text-32">2</h1>
+            </div>
+            <div class="pt-16 w-100 h-100 d-flex flex-column items-center gap-4">
+              <i class="text-40 text-secondary fa-solid fa-database"></i>
+
+              <p class="text-md text-center text-gray">
+                Manage/Access <br />
+                organize and <br />access records
+              </p>
+            </div>
+          </div>
+
+          <i class="text-2xl text-gray fa-solid fa-circle-arrow-right"></i>
+
+          <div
+            class="p-5 w-1/5 h-100 d-flex flex-column items-start shadow rounded-md border border-light-gray work-card-active"
+          >
+            <div class="w-48 h-48 d-flex flex-row items-center justify-center bg-secondary radius-full">
+              <h1 class="text-white text-32">3</h1>
+            </div>
+            <div class="pt-16 w-100 h-100 d-flex flex-column items-center gap-4">
+              <i class="text-40 text-secondary fa-solid fa-heart-circle-check"></i>
+
+              <p class="text-md text-center text-gray">Get results, <br />view information and <br />reports</p>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer class="bg-dark text-accent p-3 d-flexw flex-row justify-between items-center footer__h-6">
+      <p>@ Britech College</p>
+    </footer>
   </body>
 </html>

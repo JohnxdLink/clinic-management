@@ -1,0 +1,5 @@
+.main-container__h-84 {
+  height: 84dvh;
+  scroll-behavior: smooth;
+  overflow-y: auto;
+}

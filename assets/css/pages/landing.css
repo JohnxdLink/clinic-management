@@ -1,10 +1,8 @@
 @import url("../layout/header.css");
 @import url("../layout/footer.css");
 @import url("../layout/main-container.css");
-@import url("../component/loader/skeleton.css");
-@import url("../component/buttons/primary-button.css");
-@import url("../component/buttons/secondary-button.css");
-@import url("../component/buttons/ghost-button.css ");
+@import url("../component/loader/base.css");
+@import url("../component/buttons/base.css");
 
 .offer-section {
   width: 300;

@@ -174,6 +174,22 @@
   border-color: var(--color-dark);
 }
 
+.border-success {
+  border-color: var(--color-info-success);
+}
+
+.border-danger {
+  border-color: var(--color-info-danger);
+}
+
+.border-info {
+  border-color: var(--color-info-info);
+}
+
+.border-warning-info {
+  border-color: var(--color-info-warning);
+}
+
 .border-collapse {
   border-collapse: collapse;
 }

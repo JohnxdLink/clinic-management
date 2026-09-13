@@ -1,11 +1,11 @@
 :root {
   /* Colors */
-  --color-primary: #FFD1DC;
-  --color-secondary: #FF7043;
-  --color-navy: #FFAB91;
-  --color-accent:  #FFFFFF;
-  --color-warning: #FDE8D7;
-  --color-dark: #2A2A2D;
+  --color-primary: #ffd1dc;
+  --color-secondary: #ff7043;
+  --color-navy: #ffab91;
+  --color-accent: #ffffff;
+  --color-warning: #fde8d7;
+  --color-dark: #2a2a2d;
 
   --color-white: #ffffff;
   --color-black: #000000;
@@ -13,14 +13,30 @@
   --color-gray: #6c757d;
   --color-light-gray: #c3c2c2;
 
-  --color-primary-50: #FFD1DC80;
-  --color-secondary-50: #FF704380;
-  --color-navy-50: #FFAB9180;
-  --color-accent-50: #FFFFFF80;
+  --color-primary-50: #ffd1dc80;
+  --color-secondary-50: #ff704380;
+  --color-navy-50: #ffab9180;
+  --color-accent-50: #ffffff80;
   --color-warning-50: #d3ab5480;
-  --color-dark-50: #2A2A2D80;
+  --color-dark-50: #2a2a2d80;
   --color-black-50: #00000080;
   --color-white-50: #ffffff80;
+
+  /* Extra colors for info */
+  --color-info-success: #2e7d32;
+  --color-info-warning: #f9a825;
+  --color-info-danger: #d32f2f;
+  --color-info-info: #1976d2;
+
+  --color-info-success-light: #e8f5e9;
+  --color-info-warning-light: #fff8e1;
+  --color-info-danger-light: #ffebee;
+  --color-info-info-light: #e3f2fd;
+
+  --color-info-success-50: #2e7d3280;
+  --color-info-warning-50: #f9a82580;
+  --color-info-danger-50: #d32f2f80;
+  --color-info-info-50: #1976d280;
 
   /* Font sizes */
   --font-size-56: 56px;

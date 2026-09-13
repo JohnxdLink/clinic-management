@@ -42,6 +42,42 @@
   background-color: var(--color-light-gray);
 }
 
+/* Semantic Background Colors */
+
+.bg-success {
+  background-color: var(--color-info-success);
+}
+
+.bg-warning-info {
+  background-color: var(--color-info-warning);
+}
+
+.bg-danger {
+  background-color: var(--color-info-danger);
+}
+
+.bg-info {
+  background-color: var(--color-info-info);
+}
+
+/* Semantic Light Background Colors */
+
+.bg-success-light {
+  background-color: var(--color-info-success-light);
+}
+
+.bg-warning-light {
+  background-color: var(--color-info-warning-light);
+}
+
+.bg-danger-light {
+  background-color: var(--color-info-danger-light);
+}
+
+.bg-info-light {
+  background-color: var(--color-info-info-light);
+}
+
 .bg-transparent {
   background-color: transparent;
 }

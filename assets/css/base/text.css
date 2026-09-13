@@ -178,6 +178,26 @@
   color: var(--color-light-gray);
 }
 
+.text-success {
+  color: var(--color-info-success);
+}
+
+.text-danger {
+  color: var(--color-info-danger);
+}
+
+.text-info {
+  color: var(--color-info-info);
+}
+
+.text-warning-info {
+  color: var(--color-info-warning);
+}
+
+.text-center {
+  text-align: center;
+}
+
 .text-center {
   text-align: center;
 }

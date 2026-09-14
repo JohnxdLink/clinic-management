@@ -15,10 +15,7 @@ const createRole = async (name, description) => {
     throw new Error("Role name is required.");
   }
 
-  const [result] = await db.query(
-    CREATE_ROLE,
-    [name, description]
-  );
+  const [result] = await db.query(CREATE_ROLE, [name, description]);
 
   return result;
 };
@@ -35,10 +32,7 @@ const findRoleById = async (id) => {
     throw new Error("Role ID is required.");
   }
 
-  const [rows] = await db.query(
-    FIND_ROLE_BY_ID,
-    [id]
-  );
+  const [rows] = await db.query(FIND_ROLE_BY_ID, [id]);
 
   return rows[0] || null;
 };
@@ -49,10 +43,7 @@ const findRoleByName = async (name) => {
     throw new Error("Role name is required.");
   }
 
-  const [rows] = await db.query(
-    FIND_ROLE_BY_NAME,
-    [name]
-  );
+  const [rows] = await db.query(FIND_ROLE_BY_NAME, [name]);
 
   return rows[0] || null;
 };
@@ -67,10 +58,7 @@ const updateRole = async (id, name, description) => {
     throw new Error("Role name is required.");
   }
 
-  const [result] = await db.query(
-    UPDATE_ROLE,
-    [name, description, id]
-  );
+  const [result] = await db.query(UPDATE_ROLE, [name, description, id]);
 
   return result;
 };
@@ -81,10 +69,7 @@ const deleteRole = async (id) => {
     throw new Error("Role ID is required.");
   }
 
-  const [result] = await db.query(
-    DELETE_ROLE,
-    [id]
-  );
+  const [result] = await db.query(DELETE_ROLE, [id]);
 
   return result;
 };

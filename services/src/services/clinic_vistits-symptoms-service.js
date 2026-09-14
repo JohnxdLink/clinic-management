@@ -8,29 +8,20 @@ const {
   FIND_CLINIC_VISITS_BY_SYMPTOM_ID,
   UPDATE_CLINIC_VISIT_SYMPTOM,
   DELETE_CLINIC_VISIT_SYMPTOM,
-} = require("../database/queries/clinic-visit-symptom-query.js");
+} = require("../database/queries/clinic_visits_symptoms-query.js");
 
-const createClinicVisitSymptom = async (
-  clinic_visit_id,
-  symptom_id,
-  notes
-) => {
+const createClinicVisitSymptom = async (clinic_visit_id, symptom_id, notes) => {
   if (!clinic_visit_id || !symptom_id) {
     throw new Error("Clinic visit ID and symptom ID are required.");
   }
 
-  const [result] = await db.query(
-    CREATE_CLINIC_VISIT_SYMPTOM,
-    [clinic_visit_id, symptom_id, notes]
-  );
+  const [result] = await db.query(CREATE_CLINIC_VISIT_SYMPTOM, [clinic_visit_id, symptom_id, notes]);
 
   return result;
 };
 
 const findAllClinicVisitSymptoms = async () => {
-  const [rows] = await db.query(
-    FIND_ALL_CLINIC_VISIT_SYMPTOMS
-  );
+  const [rows] = await db.query(FIND_ALL_CLINIC_VISIT_SYMPTOMS);
 
   return rows;
 };
@@ -40,10 +31,7 @@ const findClinicVisitSymptomById = async (id) => {
     throw new Error("Clinic visit symptom ID is required.");
   }
 
-  const [rows] = await db.query(
-    FIND_CLINIC_VISIT_SYMPTOM_BY_ID,
-    [id]
-  );
+  const [rows] = await db.query(FIND_CLINIC_VISIT_SYMPTOM_BY_ID, [id]);
 
   return rows[0] || null;
 };
@@ -53,10 +41,7 @@ const findClinicVisitSymptomsByVisitId = async (clinic_visit_id) => {
     throw new Error("Clinic visit ID is required.");
   }
 
-  const [rows] = await db.query(
-    FIND_CLINIC_VISIT_SYMPTOMS_BY_VISIT_ID,
-    [clinic_visit_id]
-  );
+  const [rows] = await db.query(FIND_CLINIC_VISIT_SYMPTOMS_BY_VISIT_ID, [clinic_visit_id]);
 
   return rows;
 };
@@ -66,28 +51,17 @@ const findClinicVisitsBySymptomId = async (symptom_id) => {
     throw new Error("Symptom ID is required.");
   }
 
-  const [rows] = await db.query(
-    FIND_CLINIC_VISITS_BY_SYMPTOM_ID,
-    [symptom_id]
-  );
+  const [rows] = await db.query(FIND_CLINIC_VISITS_BY_SYMPTOM_ID, [symptom_id]);
 
   return rows;
 };
 
-const updateClinicVisitSymptom = async (
-  id,
-  clinic_visit_id,
-  symptom_id,
-  notes
-) => {
+const updateClinicVisitSymptom = async (id, clinic_visit_id, symptom_id, notes) => {
   if (!id) {
     throw new Error("Clinic visit symptom ID is required.");
   }
 
-  const [result] = await db.query(
-    UPDATE_CLINIC_VISIT_SYMPTOM,
-    [clinic_visit_id, symptom_id, notes, id]
-  );
+  const [result] = await db.query(UPDATE_CLINIC_VISIT_SYMPTOM, [clinic_visit_id, symptom_id, notes, id]);
 
   return result;
 };
@@ -97,10 +71,7 @@ const deleteClinicVisitSymptom = async (id) => {
     throw new Error("Clinic visit symptom ID is required.");
   }
 
-  const [result] = await db.query(
-    DELETE_CLINIC_VISIT_SYMPTOM,
-    [id]
-  );
+  const [result] = await db.query(DELETE_CLINIC_VISIT_SYMPTOM, [id]);
 
   return result;
 };

@@ -8,7 +8,7 @@ const {
   FIND_MEDICAL_INVENTORY_BY_RECORDED_BY,
   UPDATE_MEDICAL_INVENTORY,
   DELETE_MEDICAL_INVENTORY,
-} = require("../database/queries/medical-inventory-query.js");
+} = require("../database/queries/medical_inventory-query.js");
 
 // CREATE
 const createMedicalInventory = async (
@@ -17,25 +17,20 @@ const createMedicalInventory = async (
   quantity,
   transaction_date,
   remarks,
-  recorded_by
+  recorded_by,
 ) => {
   if (!medical_item_id || !transaction_type || !quantity || !recorded_by) {
-    throw new Error(
-      "Medical item ID, transaction type, quantity, and recorded by are required."
-    );
+    throw new Error("Medical item ID, transaction type, quantity, and recorded by are required.");
   }
 
-  const [result] = await db.query(
-    CREATE_MEDICAL_INVENTORY,
-    [
-      medical_item_id,
-      transaction_type,
-      quantity,
-      transaction_date,
-      remarks,
-      recorded_by,
-    ]
-  );
+  const [result] = await db.query(CREATE_MEDICAL_INVENTORY, [
+    medical_item_id,
+    transaction_type,
+    quantity,
+    transaction_date,
+    remarks,
+    recorded_by,
+  ]);
 
   return result;
 };
@@ -52,10 +47,7 @@ const findMedicalInventoryById = async (id) => {
     throw new Error("Medical inventory ID is required.");
   }
 
-  const [rows] = await db.query(
-    FIND_MEDICAL_INVENTORY_BY_ID,
-    [id]
-  );
+  const [rows] = await db.query(FIND_MEDICAL_INVENTORY_BY_ID, [id]);
 
   return rows[0] || null;
 };
@@ -66,10 +58,7 @@ const findMedicalInventoryByItemId = async (medical_item_id) => {
     throw new Error("Medical item ID is required.");
   }
 
-  const [rows] = await db.query(
-    FIND_MEDICAL_INVENTORY_BY_ITEM_ID,
-    [medical_item_id]
-  );
+  const [rows] = await db.query(FIND_MEDICAL_INVENTORY_BY_ITEM_ID, [medical_item_id]);
 
   return rows;
 };
@@ -80,10 +69,7 @@ const findMedicalInventoryByRecordedBy = async (recorded_by) => {
     throw new Error("Recorded by staff ID is required.");
   }
 
-  const [rows] = await db.query(
-    FIND_MEDICAL_INVENTORY_BY_RECORDED_BY,
-    [recorded_by]
-  );
+  const [rows] = await db.query(FIND_MEDICAL_INVENTORY_BY_RECORDED_BY, [recorded_by]);
 
   return rows;
 };
@@ -96,30 +82,25 @@ const updateMedicalInventory = async (
   quantity,
   transaction_date,
   remarks,
-  recorded_by
+  recorded_by,
 ) => {
   if (!id) {
     throw new Error("Medical inventory ID is required.");
   }
 
   if (!medical_item_id || !transaction_type || !quantity || !recorded_by) {
-    throw new Error(
-      "Medical item ID, transaction type, quantity, and recorded by are required."
-    );
+    throw new Error("Medical item ID, transaction type, quantity, and recorded by are required.");
   }
 
-  const [result] = await db.query(
-    UPDATE_MEDICAL_INVENTORY,
-    [
-      medical_item_id,
-      transaction_type,
-      quantity,
-      transaction_date,
-      remarks,
-      recorded_by,
-      id,
-    ]
-  );
+  const [result] = await db.query(UPDATE_MEDICAL_INVENTORY, [
+    medical_item_id,
+    transaction_type,
+    quantity,
+    transaction_date,
+    remarks,
+    recorded_by,
+    id,
+  ]);
 
   return result;
 };
@@ -130,10 +111,7 @@ const deleteMedicalInventory = async (id) => {
     throw new Error("Medical inventory ID is required.");
   }
 
-  const [result] = await db.query(
-    DELETE_MEDICAL_INVENTORY,
-    [id]
-  );
+  const [result] = await db.query(DELETE_MEDICAL_INVENTORY, [id]);
 
   return result;
 };

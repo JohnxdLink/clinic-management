@@ -8,7 +8,7 @@ const {
   FIND_HEALTH_RECORD_BY_STAFF_ID,
   UPDATE_HEALTH_RECORD,
   DELETE_HEALTH_RECORD,
-} = require("../database/queries/health-record-query.js");
+} = require("../database/queries/health_records-query.js");
 
 // CREATE
 const createHealthRecord = async (
@@ -21,33 +21,28 @@ const createHealthRecord = async (
   emergency_contact_name,
   emergency_contact_number,
   emergency_contact_relationship,
-  notes
+  notes,
 ) => {
   if (!student_id && !staff_id) {
     throw new Error("Student ID or staff ID is required.");
   }
 
   if (student_id && staff_id) {
-    throw new Error(
-      "Health record must belong to either a student or staff, not both."
-    );
+    throw new Error("Health record must belong to either a student or staff, not both.");
   }
 
-  const [result] = await db.query(
-    CREATE_HEALTH_RECORD,
-    [
-      student_id,
-      staff_id,
-      blood_type,
-      allergies,
-      medical_condition,
-      current_medications,
-      emergency_contact_name,
-      emergency_contact_number,
-      emergency_contact_relationship,
-      notes,
-    ]
-  );
+  const [result] = await db.query(CREATE_HEALTH_RECORD, [
+    student_id,
+    staff_id,
+    blood_type,
+    allergies,
+    medical_condition,
+    current_medications,
+    emergency_contact_name,
+    emergency_contact_number,
+    emergency_contact_relationship,
+    notes,
+  ]);
 
   return result;
 };
@@ -64,10 +59,7 @@ const findHealthRecordById = async (id) => {
     throw new Error("Health record ID is required.");
   }
 
-  const [rows] = await db.query(
-    FIND_HEALTH_RECORD_BY_ID,
-    [id]
-  );
+  const [rows] = await db.query(FIND_HEALTH_RECORD_BY_ID, [id]);
 
   return rows[0] || null;
 };
@@ -78,10 +70,7 @@ const findHealthRecordByStudentId = async (student_id) => {
     throw new Error("Student ID is required.");
   }
 
-  const [rows] = await db.query(
-    FIND_HEALTH_RECORD_BY_STUDENT_ID,
-    [student_id]
-  );
+  const [rows] = await db.query(FIND_HEALTH_RECORD_BY_STUDENT_ID, [student_id]);
 
   return rows[0] || null;
 };
@@ -92,10 +81,7 @@ const findHealthRecordByStaffId = async (staff_id) => {
     throw new Error("Staff ID is required.");
   }
 
-  const [rows] = await db.query(
-    FIND_HEALTH_RECORD_BY_STAFF_ID,
-    [staff_id]
-  );
+  const [rows] = await db.query(FIND_HEALTH_RECORD_BY_STAFF_ID, [staff_id]);
 
   return rows[0] || null;
 };
@@ -112,7 +98,7 @@ const updateHealthRecord = async (
   emergency_contact_name,
   emergency_contact_number,
   emergency_contact_relationship,
-  notes
+  notes,
 ) => {
   if (!id) {
     throw new Error("Health record ID is required.");
@@ -123,27 +109,22 @@ const updateHealthRecord = async (
   }
 
   if (student_id && staff_id) {
-    throw new Error(
-      "Health record must belong to either a student or staff, not both."
-    );
+    throw new Error("Health record must belong to either a student or staff, not both.");
   }
 
-  const [result] = await db.query(
-    UPDATE_HEALTH_RECORD,
-    [
-      student_id,
-      staff_id,
-      blood_type,
-      allergies,
-      medical_condition,
-      current_medications,
-      emergency_contact_name,
-      emergency_contact_number,
-      emergency_contact_relationship,
-      notes,
-      id,
-    ]
-  );
+  const [result] = await db.query(UPDATE_HEALTH_RECORD, [
+    student_id,
+    staff_id,
+    blood_type,
+    allergies,
+    medical_condition,
+    current_medications,
+    emergency_contact_name,
+    emergency_contact_number,
+    emergency_contact_relationship,
+    notes,
+    id,
+  ]);
 
   return result;
 };
@@ -154,10 +135,7 @@ const deleteHealthRecord = async (id) => {
     throw new Error("Health record ID is required.");
   }
 
-  const [result] = await db.query(
-    DELETE_HEALTH_RECORD,
-    [id]
-  );
+  const [result] = await db.query(DELETE_HEALTH_RECORD, [id]);
 
   return result;
 };

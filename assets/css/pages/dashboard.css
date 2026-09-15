@@ -1,0 +1,19 @@
+@import url("../layout/header.css");
+@import url("../layout/main-container.css");
+@import url("../layout/footer.css");
+@import url("../component/buttons/base.css");
+
+.btn-nav {
+  justify-content: start;
+}
+
+.btn-nav__sub-item {
+  justify-content: space-between;
+}
+
+.aside__illustration-box {
+  background-image: url("../../images/illustrations/flower.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

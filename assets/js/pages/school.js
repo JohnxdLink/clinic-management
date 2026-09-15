@@ -1,0 +1,3 @@
+const school = () => {};
+
+school();

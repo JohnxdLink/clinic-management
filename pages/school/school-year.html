@@ -16,10 +16,12 @@
       </div>
 
       <nav class="p-3 d-flex flex-column flex-1">
-        <a class="btn-ghost btn-nav" href="../dashboard.html">
+        <a class="btn-ghost btn-ghost__is-active btn-nav" href="../dashboard.html">
           <span class="mr-1 fa-solid fa-shapes"></span>Dashboard</a
         >
-        <a class="btn-ghost btn-nav" href="../students.html"> <span class="mr-1 fa-solid fa-users"></span>Students</a>
+        <a class="btn-ghost btn-ghost__is-active btn-nav" href="../students.html">
+          <span class="mr-1 fa-solid fa-users"></span>Students</a
+        >
         <div class="d-flex flex-column">
           <a id="schoolToggle" href="" class="btn-ghost btn-ghost__is-active btn-nav__sub-item">
             <div>
@@ -63,7 +65,25 @@
     <div class="w-100 d-flex flex-column gap-4">
       <header class="header__h-13 border border-light-gray rounded-md"></header>
 
-      <main class="main-container__h-87 border border-light-gray rounded-md"></main>
+      <main class="p-5 border border-light-gray rounded-md">
+        <section class="h-128 d-flex flex-row gap-5">
+          <article class="d-flex flex-column flex-1 border border-light-gray rounded-md shadow-md">
+            <h3>Total School Year</h3>
+          </article>
+          <article class="d-flex flex-column flex-1 border border-light-gray rounded-md shadow-md">
+            <h3>Active School Year</h3>
+          </article>
+          <article class="d-flex flex-column flex-1 border border-light-gray rounded-md shadow-md">
+            <h3>Inactive School Year</h3>
+          </article>
+          <article class="d-flex flex-column flex-1 border border-light-gray rounded-md shadow-md">
+            <h3>Current School Year</h3>
+          </article>
+        </section>
+
+        <section></section>
+        <section></section>
+      </main>
     </div>
   </body>
 

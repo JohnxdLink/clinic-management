@@ -1,10 +1,10 @@
 const { StatusCodes, ReasonPhrases } = require("http-status-codes");
-const accountsService = require("../services/accounts-service.js");
+const clinic_visit_symptomsService = require("../services/clinic_visit_symptoms-service.js");
 
-const createAccount = async (req, res) => {
+const createClinicVisitSymptom = async (req, res) => {
   try {
-    const { username, password } = req.body;
-    const result = await accountsService.createAccount(username, password);
+    const { clinic_visit_id, symptom_id, notes } = req.body;
+    const result = await clinic_visit_symptomsServices.clinic_visit_symptoms(clinic_visit_id, symptom_id, notes);
 
     return res.status(StatusCodes.CREATED).json({
       success: true,
@@ -21,9 +21,9 @@ const createAccount = async (req, res) => {
   }
 };
 
-const findAllAccounts = async (req, res) => {
+const findAllClinicVisitSymptoms = async (req, res) => {
   try {
-    const result = await accountsService.findAllAccounts();
+    const result = await accountsService.findAllClinicVisitSymptoms();
 
     return res.status(StatusCodes.OK).json({
       success: true,
@@ -150,10 +150,11 @@ const deleteAccount = async (req, res) => {
 };
 
 module.exports = {
-  createAccount,
-  findAllAccounts,
+  createClinicVisitSymptom,
+  findAllClinicVisitSymptoms,
   findAccountById,
   findAccountByUsername,
-  updateAccount,
-  deleteAccount,
+  FIND_CLINIC_VISITS_BY_SYMPTOM_ID,
+  UPDATE_CLINIC_VISIT_SYMPTOM,
+  DELETE_CLINIC_VISIT_SYMPTOM,
 };

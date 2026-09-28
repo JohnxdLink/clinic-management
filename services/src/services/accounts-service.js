@@ -42,7 +42,7 @@ const findAccountByUsername = async (username) => {
   const [rows] = await db.query(FIND_ACCOUNT_BY_USERNAME, [username]);
 
   return rows[0] || null;
-};
+};  
 
 const updateAccount = async (id, username, password) => {
   if (!id) {

@@ -9,5 +9,5 @@ const FIND_BY_USERNAME = `
 `;
 
 module.exports = {
-  FIND_BY_USERNAME,
+    FIND_BY_USERNAME,
 };

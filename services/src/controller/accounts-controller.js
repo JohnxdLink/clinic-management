@@ -2,176 +2,155 @@ const { StatusCodes, ReasonPhrases } = require("http-status-codes");
 
 const gradeNStrandsService = require("../services/grade_n_strands-service.js");
 
-const createGradeNStrand = async (req, res) => {
+const createAccount = async (req, res) => {
   try {
-    const { grade_level, strand, description } = req.body;
+    const { username, password } = req.body;
 
-    const result = await gradeNStrandsService.createGradeNStrand(
-      grade_level,
-      strand,
-      description
-    );
+    const result = await accountService.createAccount( username, password);
 
     return res.status(StatusCodes.CREATED).json({
-      success: true,
-      message: "Created grade and strand successfully.",
+      status: StatusCodes.CREATED,
+      message: "Account created successfully.",
       data: result,
     });
   } catch (error) {
-    console.error("Created grade and strand error:", error);
-
-    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
-      success: false,
-      message: error.message || ReasonPhrases.INTERNAL_SERVER_ERROR,
+    return res.status(StatusCodes.BAD_REQUEST).json({
+      status: StatusCodes.BAD_REQUEST,
+      message: error.message || ReasonPhrases.BAD_REQUEST,
     });
   }
 };
 
-const findAllGradeNStrands = async (req, res) => {
+const findAllAccountsController = async (req, res) => {
   try {
-    const result = await gradeNStrandsService.findAllGradeNStrands();
+    const accounts = await findAllAccounts();
 
     return res.status(StatusCodes.OK).json({
-      success: true,
-      message: "Find all grade and strands fetched successfully.",
-      data: result,
+      status: StatusCodes.OK,
+      message: "Accounts retrieved successfully.",
+      data: accounts,
     });
   } catch (error) {
-    console.error("Failed find all grade and strands error:", error);
-
     return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
-      success: false,
+      status: StatusCodes.INTERNAL_SERVER_ERROR,
       message: error.message || ReasonPhrases.INTERNAL_SERVER_ERROR,
     });
   }
 };
 
-const findGradeNStrandById = async (req, res) => {
+const findAccountByIdController = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const result = await gradeNStrandsService.findGradeNStrandById(id);
+    const account = await findAccountById(id);
 
-    if (!result) {
+    if (!account) {
       return res.status(StatusCodes.NOT_FOUND).json({
-        success: false,
-        message: "Grade and strand by id not found.",
+        status: StatusCodes.NOT_FOUND,
+        message: "Account not found.",
       });
     }
 
     return res.status(StatusCodes.OK).json({
-      success: true,
-      message: "Find grade and strand by id fetched successfully.",
-      data: result,
+      status: StatusCodes.OK,
+      message: "Account retrieved successfully.",
+      data: account,
     });
   } catch (error) {
-    console.error("Find grade and strand by id error:", error);
-
-    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
-      success: false,
-      message: error.message || ReasonPhrases.INTERNAL_SERVER_ERROR,
+    return res.status(StatusCodes.BAD_REQUEST).json({
+      status: StatusCodes.BAD_REQUEST,
+      message: error.message || ReasonPhrases.BAD_REQUEST,
     });
   }
 };
 
-const findGradeNStrand = async (req, res) => {
+
+const findAccountByUsernameController = async (req, res) => {
   try {
-    const { grade_level, strand } = req.query;
+    const { username } = req.params;
 
-    const result = await gradeNStrandsService.findGradeNStrand(
-      grade_level,
-      strand
-    );
+    const account = await findAccountByUsername(username);
 
-    if (!result) {
+    if (!account) {
       return res.status(StatusCodes.NOT_FOUND).json({
-        success: false,
-        message: "Grade and strand not found.",
+        status: StatusCodes.NOT_FOUND,
+        message: "Account not found.",
       });
     }
 
     return res.status(StatusCodes.OK).json({
-      success: true,
-      message: "Find grade and strand fetched successfully.",
-      data: result,
+      status: StatusCodes.OK,
+      message: "Account retrieved successfully.",
+      data: account,
     });
   } catch (error) {
-    console.error("Find grade and strand error:", error);
-
-    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
-      success: false,
-      message: error.message || ReasonPhrases.INTERNAL_SERVER_ERROR,
+    return res.status(StatusCodes.BAD_REQUEST).json({
+      status: StatusCodes.BAD_REQUEST,
+      message: error.message || ReasonPhrases.BAD_REQUEST,
     });
   }
 };
 
-const updateGradeNStrand = async (req, res) => {
+
+const updateAccountController = async (req, res) => {
   try {
     const { id } = req.params;
-    const { grade_level, strand, description } = req.body;
+    const { username, password } = req.body;
 
-    const result = await gradeNStrandsService.updateGradeNStrand(
-      id,
-      grade_level,
-      strand,
-      description
-    );
+    const result = await updateAccount(id, username, password);
 
-    if (!result) {
+    if (result.affectedRows === 0) {
       return res.status(StatusCodes.NOT_FOUND).json({
-        success: false,
-        message: "Grade and strand not found.",
+        status: StatusCodes.NOT_FOUND,
+        message: "Account not found.",
       });
     }
 
     return res.status(StatusCodes.OK).json({
-      success: true,
-      message: "Grade and strand updated successfully.",
+      status: StatusCodes.OK,
+      message: "Account updated successfully.",
       data: result,
     });
   } catch (error) {
-    console.error("Update grade and strand error:", error);
-
-    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
-      success: false,
-      message: error.message || ReasonPhrases.INTERNAL_SERVER_ERROR,
+    return res.status(StatusCodes.BAD_REQUEST).json({
+      status: StatusCodes.BAD_REQUEST,
+      message: error.message || ReasonPhrases.BAD_REQUEST,
     });
   }
 };
 
-const deleteGradeNStrand = async (req, res) => {
+
+const deleteAccountController = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const result = await gradeNStrandsService.deleteGradeNStrand(id);
+    const result = await deleteAccount(id);
 
-    if (!result) {
+    if (result.affectedRows === 0) {
       return res.status(StatusCodes.NOT_FOUND).json({
-        success: false,
-        message: "Grade and strand by id not found.",
+        status: StatusCodes.NOT_FOUND,
+        message: "Account not found.",
       });
     }
 
     return res.status(StatusCodes.OK).json({
-      success: true,
-      message: "Grade and strand deleted successfully.",
+      status: StatusCodes.OK,
+      message: "Account deleted successfully.",
       data: result,
     });
   } catch (error) {
-    console.error("Delete grade and strand error:", error);
-
-    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
-      success: false,
-      message: error.message || ReasonPhrases.INTERNAL_SERVER_ERROR,
+    return res.status(StatusCodes.BAD_REQUEST).json({
+      status: StatusCodes.BAD_REQUEST,
+      message: error.message || ReasonPhrases.BAD_REQUEST,
     });
   }
 };
 
 module.exports = {
-  createGradeNStrand,
-  findAllGradeNStrands,
-  findGradeNStrandById,
-  findGradeNStrand,
-  updateGradeNStrand,
-  deleteGradeNStrand,
+  createAccountController,
+  findAllAccountsController,
+  findAccountByIdController,
+  findAccountByUsernameController,
+  updateAccountController,
+  deleteAccountController,
 };

@@ -94,12 +94,12 @@ const findGradeNStrand = async (req, res) => {
   }
 };
 
-const updateClinicVisit = async (req, res) => {
+const updateGradeNStrand = async (req, res) => {
   try {
     const { id } = req.params;
     const {health_record_id,visit_date,time_in,time_out,reason,symptoms,treatment,remarks,recorded_by, } = req.body;
 
-    const result = await clinicvisitService.updateClinicVisit(id,health_record_id,visit_date,time_in,time_out,reason,symptoms,treatment,remarks,recorded_by,);
+    const result = await gradenstrandServicee.updateGradeNStrand(id,health_record_id,visit_date,time_in,time_out,reason,symptoms,treatment,remarks,recorded_by,);
 
     if (!result) {
       return res.status(StatusCodes.NOT_FOUND).json({
@@ -110,11 +110,11 @@ const updateClinicVisit = async (req, res) => {
 
     return res.status(StatusCodes.OK).json({
       success: true,
-      message: "Clinic visit updated successfully.",
+      message: " Grade n strand updated successfully.",
       data: result,
     });
   } catch (error) {
-    console.error("Update clinic visit error:", error);
+    console.error("Update grade n strand error:", error);
 
     return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
       success: false,
@@ -123,24 +123,24 @@ const updateClinicVisit = async (req, res) => {
   }
 };
 
-const deleteClinicVisit = async (req, res) => {
+const deleteGradeNStrand = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const result = await clinicvisitService.deleteClinicVisit(id);
+    const result = await gradenstrandService.deleteGradeNStrand (id);
     if (!result) {
       return res.status(StatusCodes.NOT_FOUND).json({
         success: false,
-        message: "Clinic Visit by id not found.",
+        message: "Grade N Strand by id not found.",
       });
     }
     return res.status(StatusCodes.OK).json({
       success: true,
-      message: " Clinic Visit deleted successfully.",
+      message: " Grade N Strand deleted successfully.",
       data: result,
     });
   } catch (error) {
-    console.error("Delete clinic visit error:", error);
+    console.error("Delete grade n strand error:", error);
 
     return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
       success: false,
@@ -150,10 +150,10 @@ const deleteClinicVisit = async (req, res) => {
 };
 
 module.exports = {
-  createClinicVisit,
-  findAllClinicVisit,
-  findClinicVisitsByid,
-  findclinicisitbyhealthrecordid,
-  updateClinicVisit,
-  deleteClinicVisit,
+  createGradeNStrand,
+  findAllGradeNStrands,
+  findGradeNStrandByid,
+  findGradeNStrand,
+  updateGradeNStrand,
+  deleteGradeNStrand,
 };

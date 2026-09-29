@@ -1,173 +1,159 @@
-const createClinicVisitService = require(".. services/accounts-services.js");
-const { createClinicVisit, findClinicVisitsByRecordedBy } = require("../services/clinic_visits-service");
+const { StatusCodes, ReasonPhrases } = require("http-status-codes");
+const clinicVisitsService = require("../services/clinic_visit-service.js");
 
-const createClinicVisitAccount = async (req, res) => {
-    try { 
-        const { username, password } = req.body;
-        
-        const result = await createClinicVisitService.createClinicVisitService( username, password ); 
-        
-        return res.status(StatusCodes.CREATED).json({
-            success: true, 
-            message: "Create Clinic Visit created successfully.",
-            data: result,
-            });
-        } catch (error) {
-        console.error("Create CLinic Visit account error:", error);
+const createClinicVisit = async (req, res) => {
+  try {
+    const { health_record_id,visit_date, time_in, time_out, reason, symptoms, treatment, remarks, recorded_by } = req.body;
+    const result = await clinicVisitsService.createclinic_visit(health_record_id,visit_date, time_in, time_out, reason, symptoms, treatment, remarks, recorded_by,);
 
-        return res.status(StatusCodes.BAD_REQUEST).json({
-            success: false,
-            message: error.message || ReasonPhrases.BAD_REQUEST,
-            });
-        } 
-    }; 
+    return res.status(StatusCodes.CREATED).json({
+      success: true,
+      message: "Created clinic visit successfully.",
+      data: result,
+    });
+  } catch (error) {
+    console.error("Created clinic visit error:", error);
 
-const { findAllClinicVisit } = require("../services/clinic_visits-service");
+    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+      success: false,
+      message: error.message || ReasonPhrases.INTERNAL_SERVER_ERROR,
+    });
+  }
+};
 
-const findAllClinicVisitsAccount = async (req, res) => {
-    try { 
-        const { username, password } = req.body;
-        
-        const result = await findAllClinicVisitService.findAllClinicVisitService( username, password ); 
-        
-        return res.status(StatusCodes.CREATED).json({
-            success: true, 
-            message: "Find All Clinic Visit created successfully.",
-            data: result,
-            });
-        } catch (error) {
-        console.error("Find All CLinic Visit account error:", error);
+const findAllClinicVisit = async (req, res) => {
+  try {
+    const result = await clinicVisitsService.findAllClinicVisit();
 
-        return res.status(StatusCodes.BAD_REQUEST).json({
-            success: false,
-            message: error.message || ReasonPhrases.BAD_REQUEST,
-            });
-        } 
-    }; 
+    return res.status(StatusCodes.OK).json({
+      success: true,
+      message: "Find all clinic visit fetched successfully.",
+      data: result,
+    });
+  } catch (error) {
+    console.error("Failed find all clinic visit error:", error);
 
-const { findClinicVisitById } = require("../services/clinic_visits-service");
+    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+      success: false,
+      message: error.message || ReasonPhrases.INTERNAL_SERVER_ERROR,
+    });
+  }
+};
 
-const findClinicVisitsById = async (req, res) => {
-    try { 
-        const { username, password } = req.body;
-        
-        const result = await findClinicVisitByIdService.findClinicVisitByIDService( username, password ); 
-        
-        return res.status(StatusCodes.CREATED).json({
-            success: true, 
-            message: "Find  Clinic Visit By Id created successfully.",
-            data: result,
-            });
-        } catch (error) {
-        console.error("Find  CLinic Visit By Id account error:", error);
+const findClinicVisitsByid = async (req, res) => {
+  try {
+    const { id } = req.params;
 
-        return res.status(StatusCodes.BAD_REQUEST).json({
-            success: false,
-            message: error.message || ReasonPhrases.BAD_REQUEST,
-            });
-        } 
-    }; 
+    const result = await findClinicVisitByIdService.findClinicVisitsByid(id);
+    if (!result) {
+      return res.status(StatusCodes.NOT_FOUND).json({
+        success: false,
+        message: "Clinic Visit by id not found.",
+      });
+    }
 
+    return res.status(StatusCodes.OK).json({
+      success: true,
+      message: "Find clinic visit by id fetched successfully.",
+      data: result,
+    });
+  } catch (error) {
+    console.error("Find clinic visit by id error:", error);
 
-const { findClinicVisitById } = require("../services/clinic_visits-service");
+    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+      success: false,
+      message: error.message || ReasonPhrases.INTERNAL_SERVER_ERROR,
+    });
+  }
+};
 
 const findClinicVisitsByHealthRecordId = async (req, res) => {
-    try { 
-        const { username, password } = req.body;
-        
-        const result = await findClinicVisitsByHealthRecordIdService.findClinicVisitsByHealthRecordIdService( username, password ); 
-        
-        return res.status(StatusCodes.CREATED).json({
-            success: true, 
-            message: "Find  Clinic Visit By Health Record Id created successfully.",
-            data: result,
-            });
-        } catch (error) {
-        console.error("Find  CLinic Visit By Health Record Id account error:", error);
+  try {
+    const { health_record_id } = req.params;
 
-        return res.status(StatusCodes.BAD_REQUEST).json({
-            success: false,
-            message: error.message || ReasonPhrases.BAD_REQUEST,
-            });
-        } 
-    }; 
+    const result = await findfindClinicVisitByIdService.findClinicVisitsByHealthRecordId(health_record_id);
+    if (!result) {
+      return res.status(StatusCodes.NOT_FOUND).json({
+        success: false,
+        message: "Clinic Visit by id not found.",
+      });
+    }
 
-const { findClinicVisitsByRecordedBy } = require("../services/clinic_visits-service");
+    return res.status(StatusCodes.OK).json({
+      success: true,
+      message: "Find clinic visit by id fetched successfully.",
+      data: result,
+    });
+  } catch (error) {
+    console.error("Find clinic visit by id error:", error);
 
-const findClinicVisitsByRecordedBy = async (req, res) => {
-    try { 
-        const { username, password } = req.body;
-        
-        const result = await findClinicVisitsByRecordedByService.findClinicVisitsByRecordedByService( username, password ); 
-        
-        return res.status(StatusCodes.CREATED).json({
-            success: true, 
-            message: "Find  Clinic Visit By Recorded By created successfully.",
-            data: result,
-            });
-        } catch (error) {
-        console.error("Find  CLinic Visit By Recorded By account error:", error);
-
-        return res.status(StatusCodes.BAD_REQUEST).json({
-            success: false,
-            message: error.message || ReasonPhrases.BAD_REQUEST,
-            });
-        } 
-    }; 
-
-const { updateClinicVisit } = require("../services/clinic_visits-service");
+    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+      success: false,
+      message: error.message || ReasonPhrases.INTERNAL_SERVER_ERROR,
+    });
+  }
+};
 
 const updateClinicVisit = async (req, res) => {
-    try { 
-        const { username, password } = req.body;
-        
-        const result = await updateClinicVisit.updateClinicVisit( username, password ); 
-        
-        return res.status(StatusCodes.CREATED).json({
-            success: true, 
-            message: "Update Clinic Visit created successfully.",
-            data: result,
-            });
-        } catch (error) {
-        console.error("Update Clinic Visit account error:", error);
+  try {
+    const { id } = req.params;
+    const {health_record_id,visit_date,time_in,time_out,reason,symptoms,treatment,remarks,recorded_by, } = req.body;
 
-        return res.status(StatusCodes.BAD_REQUEST).json({
-            success: false,
-            message: error.message || ReasonPhrases.BAD_REQUEST,
-            });
-        } 
-    }; 
+    const result = await clinicvisitService.updateClinicVisit(id,health_record_id,visit_date,time_in,time_out,reason,symptoms,treatment,remarks,recorded_by,);
 
-const { deleteClinicVisit } = require("../services/clinic_visits-service");
+    if (!result) {
+      return res.status(StatusCodes.NOT_FOUND).json({
+        success: false,
+        message: "Clinic visit not found.",
+      });
+    }
+
+    return res.status(StatusCodes.OK).json({
+      success: true,
+      message: "Clinic visit updated successfully.",
+      data: result,
+    });
+  } catch (error) {
+    console.error("Update clinic visit error:", error);
+
+    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+      success: false,
+      message: error.message || ReasonPhrases.INTERNAL_SERVER_ERROR,
+    });
+  }
+};
 
 const deleteClinicVisit = async (req, res) => {
-    try { 
-        const { username, password } = req.body;
-        
-        const result = await deleteClinicVisit.deleteClinicVisit( username, password ); 
-        
-        return res.status(StatusCodes.CREATED).json({
-            success: true, 
-            message: "Delete Clinic Visit created successfully.",
-            data: result,
-            });
-        } catch (error) {
-        console.error("Delete Clinic Visit account error:", error);
+  try {
+    const { id } = req.params;
 
-        return res.status(StatusCodes.BAD_REQUEST).json({
-            success: false,
-            message: error.message || ReasonPhrases.BAD_REQUEST,
-            });
-        } 
-    }; 
-
-
-    module.exports = {
-        createClinicVisit,
-        findAllClinicVisits,
-        findClinicVisitById,
-        findClinicVisitsByHealthRecordId,
-        findClinicVisitsByRecordedBy,
-        updateClinicVisit,
-        deleteClinicVisit,
+    const result = await clinicvisitService.deleteClinicVisit(id);
+    if (!result) {
+      return res.status(StatusCodes.NOT_FOUND).json({
+        success: false,
+        message: "Clinic Visit by id not found.",
+      });
     }
+    return res.status(StatusCodes.OK).json({
+      success: true,
+      message: " Clinic Visit deleted successfully.",
+      data: result,
+    });
+  } catch (error) {
+    console.error("Delete clinic visit error:", error);
+
+    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+      success: false,
+      message: error.message || ReasonPhrases.INTERNAL_SERVER_ERROR,
+    });
+  }
+};
+
+module.exports = {
+  createClinicVisit,
+  findAllClinicVisit,
+  findClinicVisitsByid,
+  findClinicVisitsByHealthRecordId,
+  updateClinicVisit,
+  deleteClinicVisit,
+};

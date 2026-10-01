@@ -16,12 +16,8 @@
       </div>
 
       <nav class="p-3 d-flex flex-column flex-1">
-        <a class="btn-ghost  btn-nav" href="./dashboard.html">
-          <span class="mr-1 fa-solid fa-shapes"></span>Dashboard</a
-        >
-        <a class="btn-ghost btn-nav" href="./students.html">
-          <span class="mr-1 fa-solid fa-users"></span>Students</a
-        >
+        <a class="btn-ghost btn-nav" href="./dashboard.html"> <span class="mr-1 fa-solid fa-shapes"></span>Dashboard</a>
+        <a class="btn-ghost btn-nav" href="./students.html"> <span class="mr-1 fa-solid fa-users"></span>Students</a>
         <div class="d-flex flex-column">
           <a id="schoolToggle" href="./school/section.html" class="btn-ghost btn-nav__sub-item">
             <div>
@@ -63,9 +59,146 @@
     </aside>
 
     <div class="w-100 d-flex flex-column gap-4">
-      <header class="header__h-13 border border-light-gray rounded-md"></header>
+      <header
+        class="px-5 header__h-13 d-flex flex-row items-center justify-between bg-white border border-light-gray rounded-md"
+      >
+        <h3 class="text-2xl">Accounts</h3>
 
-      <main class="main-container__h-87 border border-light-gray rounded-md"></main>
+        <form class="w-320 bg-light border border-light-gray d-flex flex-row rounded-md" action="">
+          <input class="input" type="text" name="search" id="search" placeholder="Search account..." />
+          <button class="btn-ghost"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+      </header>
+
+      <main class="d-flex flex-row justify-between gap-4 main-container__h-87 overflow-hidden">
+        <section class="w-75 d-flex flex-column gap-4">
+          <article class="p-3 h-25 d-flex flex-column gap-3 bg-white border border-light-gray rounded-md overflow-y">
+            <div class="d-flex flex-row justify-between gap-3">
+              <button class="w-1/3 btn-tertiary">Role List</button>
+              <button class="w-1/3 btn-tertiary btn-tertiary__is-active">Add Role</button>
+              <button class="w-1/3 btn-tertiary" disabled>Update Role</button>
+            </div>
+
+            <form id="add-role-form" class="d-flex flex-column gap-3" action="">
+              <div>
+                <label class="label" for="role">Add Role</label>
+                <input class="mt-1 input" type="text" name="role" id="role" placeholder="Enter role" />
+              </div>
+
+              <div>
+                <label class="label" for="description">Description</label>
+                <textarea
+                  class="mt-1 textarea"
+                  name="description"
+                  id="description"
+                  placeholder="Describe this role..."
+                ></textarea>
+              </div>
+
+              <div class="d-flex justify-end">
+                <button class="btn-primary"><i class="fa-solid fa-plus"></i>Add Role</button>
+              </div>
+            </form>
+
+            <form id="update-role-form" class="d-none flex-column gap-3" action="">
+              <div>
+                <label class="label" for="update-role">Update Role</label>
+                <input class="mt-1 input" type="text" name="update-role" id="update-role" placeholder="Enter role" />
+              </div>
+
+              <div>
+                <label class="label" for="update-description">Description</label>
+                <textarea
+                  class="mt-1 textarea"
+                  name="update-description"
+                  id="update-description"
+                  placeholder="Describe this role..."
+                ></textarea>
+              </div>
+
+              <div class="d-flex justify-end">
+                <button class="btn-primary"><i class="fa-solid fa-pen"></i>Update Role</button>
+              </div>
+            </form>
+          </article>
+
+          <!-- Table container -->
+          <article class="h-75 bg-white border border-light-gray rounded-md overflow-hidden">
+            <div class="table-wrapper">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Lastname</th>
+                    <th>Firstname</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Role</th>
+                    <th>Contact No.</th>
+                    <th>Email</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr></tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+        </section>
+
+        <!-- Left container -->
+        <aside class="p-3 w-25 bg-white border border-light-gray rounded-md overflow-hidden">
+          <form class="pb-24 h-100 d-flex flex-column gap-3 overflow-y" action="">
+            <h1>Add Accounts</h1>
+
+            <div>
+              <label class="label" for="username">Username</label>
+              <input class="mt-1 input" type="text" name="username" id="username" placeholder="Enter username" />
+            </div>
+
+            <div>
+              <label class="label" for="firstname">Password</label>
+              <input class="mt-1 input" type="password" name="password" id="password" placeholder="Enter password" />
+            </div>
+
+            <div>
+              <label class="label" for="lastname">Lastname</label>
+              <input class="mt-1 input" type="lastname" name="lastname" id="lastname" placeholder="Enter lastname" />
+            </div>
+
+            <div>
+              <label class="label" for="firstname">Firstname</label>
+              <input
+                class="mt-1 input"
+                type="firstname"
+                name="firstname"
+                id="firstname"
+                placeholder="Enter firstname"
+              />
+            </div>
+
+            <div>
+              <label class="label" for="contact-no">Contact No.</label>
+              <input
+                class="mt-1 input"
+                type="contact-no"
+                name="contact-no"
+                id="contact-no"
+                placeholder="Enter contact no."
+              />
+            </div>
+
+            <div>
+              <label class="label" for="email">Email</label>
+              <input class="mt-1 input" type="email" name="email" id="email" placeholder="Enter email" />
+            </div>
+          </form>
+
+          <div class="position-sticky bottom-0 bg-white">
+            <button class="w-100 btn-primary">Add Account</button>
+          </div>
+        </aside>
+      </main>
     </div>
   </body>
 

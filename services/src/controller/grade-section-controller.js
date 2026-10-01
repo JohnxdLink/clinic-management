@@ -154,17 +154,9 @@ const findGradeSectionsByAdviser = async (req, res) => {
 
 const findGradeSection = async (req, res) => {
   try {
-    const {
-      school_year_id,
-      grade_n_strand_id,
-      section_name,
-    } = req.query;
+    const {school_year_id,grade_n_strand_id,section_name,} = req.query;
 
-    const result = await gradeSectionsService.findGradeSection(
-      school_year_id,
-      grade_n_strand_id,
-      section_name
-    );
+    const result = await gradeSectionsService.findGradeSection(school_year_id,grade_n_strand_id,section_name);
 
     if (!result) {
       return res.status(StatusCodes.NOT_FOUND).json({
@@ -192,22 +184,9 @@ const updateGradeSection = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const {
-      school_year_id,
-      grade_n_strand_id,
-      adviser_staff_id,
-      section_name,
-      description,
-    } = req.body;
+    const {school_year_id,grade_n_strand_id,adviser_staff_id,section_name,description,} = req.body;
 
-    const result = await gradeSectionsService.updateGradeSection(
-      id,
-      school_year_id,
-      grade_n_strand_id,
-      adviser_staff_id,
-      section_name,
-      description
-    );
+    const result = await gradeSectionsService.updateGradeSection(id,school_year_id,grade_n_strand_id,adviser_staff_id,section_name,description);
 
     if (!result) {
       return res.status(StatusCodes.NOT_FOUND).json({

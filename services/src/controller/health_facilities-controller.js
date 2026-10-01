@@ -5,25 +5,9 @@ const healthFacilitiesService = require("../services/health_facilities-service.j
 
 const createHealthFacility = async (req, res) => {
   try {
-    const {
-      facility_name,
-      facility_type,
-      address,
-      contact_number,
-      emergency_number,
-      contact_person,
-      status,
-    } = req.body;
+    const {facility_name,facility_type,address,contact_number,emergency_number,contact_person,status,} = req.body;
 
-    const result = await healthFacilitiesService.createHealthFacility(
-      facility_name,
-      facility_type,
-      address,
-      contact_number,
-      emergency_number,
-      contact_person,
-      status
-    );
+    const result = await healthFacilitiesService.createHealthFacility(facility_name,facility_type,address,contact_number,emergency_number,contact_person,status);
 
     return res.status(StatusCodes.CREATED).json({
       success: true,

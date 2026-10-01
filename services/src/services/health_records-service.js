@@ -11,18 +11,7 @@ const {
 } = require("../database/queries/health_records-query.js");
 
 // CREATE
-const createHealthRecord = async (
-  student_id,
-  staff_id,
-  blood_type,
-  allergies,
-  medical_condition,
-  current_medications,
-  emergency_contact_name,
-  emergency_contact_number,
-  emergency_contact_relationship,
-  notes,
-) => {
+const createHealthRecord = async (student_id,staff_id,blood_type,allergies,medical_condition,current_medications,emergency_contact_name,emergency_contact_number,emergency_contact_relationship,notes,) => {
   if (!student_id && !staff_id) {
     throw new Error("Student ID or staff ID is required.");
   }
@@ -31,18 +20,7 @@ const createHealthRecord = async (
     throw new Error("Health record must belong to either a student or staff, not both.");
   }
 
-  const [result] = await db.query(CREATE_HEALTH_RECORD, [
-    student_id,
-    staff_id,
-    blood_type,
-    allergies,
-    medical_condition,
-    current_medications,
-    emergency_contact_name,
-    emergency_contact_number,
-    emergency_contact_relationship,
-    notes,
-  ]);
+  const [result] = await db.query(CREATE_HEALTH_RECORD, [student_id,staff_id,blood_type,allergies,medical_condition,current_medications,emergency_contact_name,emergency_contact_number,emergency_contact_relationship,notes,]);
 
   return result;
 };

@@ -63,38 +63,38 @@
     <div class="w-100 d-flex flex-column gap-4">
       <header class="header__h-13 border border-light-gray rounded-md"></header>
 
-      <main class="main-container__h-87 border border-light-gray rounded-md">
+      <main class="d-flex flex-row justify-between gap-4 main-container__h-87 overflow-hidden border border-light-gray rounded-md">
 
         <section>
-          <article class="p-2">
-            <div class="form-container">
-            <label class="text-lg">Lastname</label>
-            <input type="lastname">
+
+          <article class="d-flex flex-column border p-8 m-10 rounded-md">
+            <div>
+              <table>
+                <form class="w-320 bg-light border border-light-gray d-flex flex-row rounded-md" action="">
+          <input class="input" type="text" name="search" id="search" placeholder="Search account..." />
+          <button class="btn-ghost"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+              </table>
+            </div>
           </article>
+          
+          <article class="d-flex flex-row flex-column border h-512 m-10 p-8 border-light-gray rounded-md overflow-hidden">
+            <div class="table-wrapper">
+              <table class="table">
+                <thead>
+                  <tr class=" btn-tertiary btn-tertiary__is-active">
+                    <th class="text-lg p-2">Student Id</th>
+                    <th class="text-lg p-2">Name</th>
+                    <th class="text-lg p-2">Grade Label</th>
+                    <th class="text-lg p-2">Status</th>
+                    <th class="text-lg p-2">Action</th>
+                  </tr>
+                  </thead>
 
-          <article class="p-1">
-            <div class="form-container">
-            <label class="text-lg">Fisrtname</label>
-            <input type="fisrtname">
+                  <tbody></tbody>
+                </table>
+              </div>
           </article>
-
-              <br>
-
-              <article>
-                <div class="form-container">
-                  <label class="text-lg">Middlename</label>
-                  <input type="middlename">
-                </div>
-              </article>
-
-              <br>
-
-              <article class="p-1">
-                <div class="form-container">
-                  <label class="text-lg">Contact_no</label>
-                  <input type="contact_no">
-                </div>
-              </article>
     </div>
 </main>
           </article>

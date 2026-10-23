@@ -61,48 +61,105 @@
     </aside>
 
     <div class="w-100 d-flex flex-column gap-4">
-      <header class="header__h-13 border border-light-gray rounded-md"></header>
+      <header class="header__h-13 border border-light-gray rounded-md text-lg text-bold">
+        <i class="fa-solid fa-bars p-5"></i>Student
+      </header>
 
-      <main class="d-flex flex-row justify-between gap-4 main-container__h-87 overflow-hidden border border-light-gray rounded-md">
-
-        <section>
-
-          <article class="d-flex flex-column border p-8 m-10 rounded-md">
-            <div>
-              <table>
-                <form class="w-320 bg-light border border-light-gray d-flex flex-row rounded-md" action="">
-          <input class="input" type="text" name="search" id="search" placeholder="Search account..." />
-          <button class="btn-ghost"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </form>
+      <main class="d-flex flex-row justify-between gap-4 main-container__h-87 p-5 border border-light-gray rounded-md">
+        <section class="d-flex flex-1 flex-row border p-10">
+          <article class="w-100 border p-10">
+            <div class="w-100  border rounded-md">
+              <table class="table">
+                <thead>
+                  <th class="" >Student Id</th>
+                  <th class="" >Name</th>
+                  <th class="" >Grade Level</th>
+                  <th class="" >Status</th>
+                  <th class="" >Actions</th>
+                </thead>
               </table>
             </div>
           </article>
-          
-          <article class="d-flex flex-row flex-column border h-512 m-10 p-8 border-light-gray rounded-md overflow-hidden">
-            <div class="table-wrapper">
-              <table class="table">
-                <thead>
-                  <tr class=" btn-tertiary btn-tertiary__is-active">
-                    <th class="text-lg p-2">Student Id</th>
-                    <th class="text-lg p-2">Name</th>
-                    <th class="text-lg p-2">Grade Label</th>
-                    <th class="text-lg p-2">Status</th>
-                    <th class="text-lg p-2">Action</th>
-                  </tr>
-                  </thead>
+          <aside class="p-3 w-25 bg-white border border-light-gray rounded-md overflow-hidden">
+            <form class="h-100 d-flex flex-column gap-3 overflow-y" action="">
+              <section class="students-card">
+                <div class="d-flex flex-row items-center gap-4 p-4 border rounded-md">
+                  <div class="students-icon">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                  </div>
 
-                  <tbody></tbody>
-                </table>
-              </div>
-          </article>
-    </div>
-</main>
-          </article>
-        </section>
+                  <div class="d-flex flex-column flex-1 gap-1">
+                    <h2>Students Form</h2>
+                    <p>Enter student information</p>
+                  </div>
+                </div>
+
+                <div class="students-body d-flex flex-column gap-4 p-4">
+                  <div class="students-row d-flex flex-row gap-4">
+                    <div class="form-container d-flex flex-column flex-1 gap-2">
+                      <label class="label" for="grade_section">Student Id</label>
+                      <input
+                        class="input"
+                        type="text"
+                        id="student_id"
+                        name="student_id"
+                        placeholder="Enter student id"
+                        required
+                      />
+                    </div>
+
+                    <div class="form-container d-flex flex-column flex-1 gap-2">
+                      <label class="label" for="lastname">Name</label>
+                      <input
+                        class="input"
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Enter name"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div class="students-row d-flex flex-row gap-4">
+                    <div class="form-container d-flex flex-column flex-1 gap-2">
+                      <label class="label" for="firstname">Grade Level</label>
+                      <input
+                        class="input"
+                        type="text"
+                        id="grade_level"
+                        name="grade_level"
+                        placeholder="Enter grade_level"
+                        required
+                      />
+                    </div>
+
+                    <div class="form-container d-flex flex-column flex-1 gap-2">
+                      <label class="label" for="middlename">Status</label>
+                      <input
+                        class="input"
+                        type="text"
+                        id="status"
+                        name="status"
+                        placeholder="Enter status"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="students-actions d-flex flex-row gap-3">
+                    <button type="submit" class="btn-primary flex-1">Save Student</button>
+
+                    <button type="reset" class="btn-tertiary">Clear</button>
+                  </div>
+                </div>
+              </section>
+            </form>
+          </aside>
+        </section>  
       </main>
     </div>
   </body>
 
   <script type="module" src="../assets/js/main.js"></script>
-  <script type="module" src="../assets/js/pages/students.js"></script>
+  <script type="module" src="../assets/js/pages/accounts.js"></script>
 </html>

@@ -1,12 +1,12 @@
 const { StatusCodes, ReasonPhrases } = require("http-status-codes");
-
-const gradeNStrandsService = require("../services/grade_n_strands-service.js");
+const accountService = require("../services/accounts-service.js");
+c;
 
 const createAccount = async (req, res) => {
   try {
     const { username, password } = req.body;
 
-    const result = await accountService.createAccount( username, password);
+    const result = await accountService.createAccount(username, password);
 
     return res.status(StatusCodes.CREATED).json({
       status: StatusCodes.CREATED,
@@ -21,7 +21,7 @@ const createAccount = async (req, res) => {
   }
 };
 
-const findAllAccountsController = async (req, res) => {
+const findAllAccounts = async (req, res) => {
   try {
     const accounts = await findAllAccounts();
 
@@ -38,7 +38,7 @@ const findAllAccountsController = async (req, res) => {
   }
 };
 
-const findAccountByIdController = async (req, res) => {
+const findAccountById = async (req, res) => {
   try {
     const { id } = req.params;
 
@@ -64,8 +64,7 @@ const findAccountByIdController = async (req, res) => {
   }
 };
 
-
-const findAccountByUsernameController = async (req, res) => {
+const findAccountByUsername = async (req, res) => {
   try {
     const { username } = req.params;
 
@@ -91,8 +90,7 @@ const findAccountByUsernameController = async (req, res) => {
   }
 };
 
-
-const updateAccountController = async (req, res) => {
+const updateAccount = async (req, res) => {
   try {
     const { id } = req.params;
     const { username, password } = req.body;
@@ -119,8 +117,7 @@ const updateAccountController = async (req, res) => {
   }
 };
 
-
-const deleteAccountController = async (req, res) => {
+const deleteAccount = async (req, res) => {
   try {
     const { id } = req.params;
 
@@ -147,10 +144,10 @@ const deleteAccountController = async (req, res) => {
 };
 
 module.exports = {
-  createAccountController,
-  findAllAccountsController,
-  findAccountByIdController,
-  findAccountByUsernameController,
-  updateAccountController,
-  deleteAccountController,
+  createAccount,
+  findAllAccounts,
+  findAccountById,
+  findAccountByUsername,
+  updateAccount,
+  deleteAccount,
 };

@@ -61,9 +61,67 @@
     <div class="w-100 d-flex flex-column gap-4">
       <header class="header__h-13 border border-light-gray rounded-md"></header>
 
-      <main class="main-container__h-87 border border-light-gray rounded-md"></main>
-    </div>
-  </body>
+      <main class="main-container__h-87 border border-light-gray rounded-md">
+    <aside class="p-3 w-25 bg-white border border-light-gray rounded-md overflow-hidden">
+
+      <form action="" method="post" class="d-flex flex-column gap-4 p-4">
+
+    <section class="d-flex flex-column gap-4">
+
+        <h2 class="m-0">Medical Items</h2>
+
+        <div class="d-flex flex-column gap-2">
+            <label for="item_name">Item Name:</label>
+            <input type="text" id="item_name" name="item_name" required>
+        </div>
+
+        <div class="d-flex flex-column gap-2">
+            <label for="category">Category:</label>
+            <input type="text" id="category" name="category" required>
+        </div>
+
+        <div class="d-flex flex-column gap-2">
+            <label for="unit">Unit:</label>
+            <input type="text" id="unit" name="unit" required>
+        </div>
+
+        <div class="d-flex flex-column gap-2">
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="0" required>
+        </div>
+
+        <div class="d-flex flex-column gap-2">
+            <label for="reorder_level">Reorder Level:</label>
+            <input type="number" id="reorder_level" name="reorder_level" min="0" required>
+        </div>
+
+        <div class="d-flex flex-column gap-2">
+            <label for="expiration_date">Expiration Date:</label>
+            <input type="date" id="expiration_date" name="expiration_date" required>
+        </div>
+
+        <div class="d-flex flex-column gap-2">
+            <label for="status">Status:</label>
+            <select id="status" name="status" required>
+                <option value="">Select Status</option>
+                <option value="Available">Available</option>
+                <option value="Low Stock">Low Stock</option>
+                <option value="Out of Stock">Out of Stock</option>
+                <option value="Expired">Expired</option>
+            </select>
+        </div>
+
+        <div class="d-flex flex-row gap-2">
+            <button type="submit">Save Medical Item</button>
+            <button type="reset">Clear Form</button>
+        </div>
+
+    </section>
+
+</form>
+    </aside>
+      </main>
+
 
   <script type="module" src="../assets/js/main.js"></script>
   <script type="module" src="../assets/js/pages/medical_items.js"></script>

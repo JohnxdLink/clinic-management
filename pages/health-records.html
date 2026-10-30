@@ -59,102 +59,170 @@
     </aside>
 
     <div class="w-100 d-flex flex-column gap-4">
-      <header class="header__h-13 border border-light-gray rounded-md"></header>
+      <header
+        class="px-5 header__h-13 d-flex flex-row items-center justify-between bg-white border border-light-gray rounded-md"
+      >
+        <h3 class="text-2xl">Health Records</h3>
+
+        <form class="w-320 bg-light border border-light-gray d-flex flex-row rounded-md" action="">
+          <input class="input" type="text" name="search" id="search" placeholder="Search health records..." />
+          <button class="btn-ghost"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+      </header>
 
       <main class="p-5 main-container__h-87 d-flex flex-row border border-light-gray rounded-md gap-5">
-        <div class="p-5 w-100 border border-light-gray rounded-md">
-          <!-- Medical card -->
-          <div>
-            <!-- Student and  staff -->
-            <div>
-              <div>
-                <h1 class="text-md">Student Id</h1>
-                <h1 class="text-sm">Staff Id</h1>
-              </div>
-
-              <!-- Blood type, allergies, medical condition -->
-              <div>
-                <!-- Card -->
-                <div>
-                  <!-- Find some icon in fontawesome -->
-                  <i class="fa-solid fa-phone"></i>
-                  <div>
-                    <p>Blood Type</p>
-                    <p>O+</p>
+        <section class="w-100 overflow-hidden">
+          <h1 class="mb-4 text-xl">List Items</h1>
+          <div class="h-100 d-flex flex-column overflow-y">
+            <!-- Medical card -->
+            <div class="p-3 border bg-white rounded-md">
+              <!-- Student and Staff Information -->
+              <div class="d-flex align-items-center gap-5">
+                <!-- Student Profile -->
+                <div class="d-flex align-items-center gap-3">
+                  <div class="d-flex flex-column">
+                    <h1 class="text-md">STUDENT ID:</h1>
+                    <h1 class="text-sm">Staff ID:</h1>
                   </div>
                 </div>
 
-                <!-- Card -->
-                <div>
-                  <!-- Find some icon in fontawesome -->
-                  <i class="fa-solid fa-phone"></i>
-                  <div>
-                    <p>Allergies</p>
-                    <p>Peanuts</p>
+                <!-- Blood Type, Allergies, Medical Condition -->
+                <div class="d-flex flex-1 align-items-center gap-5">
+                  <!-- Blood Type Card -->
+                  <div class="d-flex flex-1 align-items-center border-l p-3 gap-3">
+                    <i class="fa-solid fa-droplet"></i>
+                    <div class="d-flex flex-column">
+                      <p>Blood Type</p>
+                      <p></p>
+                    </div>
                   </div>
-                </div>
 
-                <!-- Card -->
-                <div>
-                  <!-- Find some icon in fontawesome -->
-                  <i class="fa-solid fa-phone"></i>
-                  <div>
-                    <p>Medical Condition</p>
-                    <p>Asthma</p>
+                  <!-- Allergies Card -->
+                  <div class="d-flex flex-1 align-items-center border-l p-3 gap-3">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <div class="d-flex flex-column">
+                      <p>Allergies</p>
+                      <p></p>
+                    </div>
+                  </div>
+
+                  <!-- Medical Condition Card -->
+                  <div class="d-flex flex-1 align-items-center border-l p-3 gap-3">
+                    <i class="fa-solid fa-stethoscope"></i>
+                    <div class="d-flex flex-column">
+                      <p>Medical Condition</p>
+                      <p></p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div>
-              <!-- Left Side -->
-              <div>
-                <!-- Current Medication -->
-                <div>
-                  <h1>Current Medication</h1>
-                  <p></p>
+              <!-- Medical Information -->
+              <div class="d-flex gap-5">
+                <!-- Left Side -->
+                <div class="d-flex flex-column flex-1 gap-3">
+                  <!-- Current Medication -->
+                  <div class="d-flex flex-column border rounded">
+                    <div class="d-flex align-items-center p-3 gap-3">
+                      <i class="fa-solid fa-pills"></i>
+                      <h2>Current Medication</h2>
+                    </div>
+                    <div class="p-3">
+                      <p></p>
+                    </div>
+                  </div>
+
+                  <!-- Notes -->
+                  <div class="d-flex flex-column border rounded">
+                    <div class="d-flex align-items-center p-3 gap-3">
+                      <i class="fa-solid fa-note-sticky"></i>
+                      <h2>Notes</h2>
+                    </div>
+                    <div class="p-3">
+                      <p></p>
+                    </div>
+                  </div>
                 </div>
 
-                <!-- Notes -->
-                <div>
-                  <h1>Notes</h1>
-                  <p></p>
+                <!-- Right Side -->
+                <div class="d-flex flex-column flex-1 border rounded">
+                  <div class="d-flex align-items-center p-3 gap-3">
+                    <i class="fa-solid fa-users"></i>
+                    <h2>Emergency Contact</h2>
+                  </div>
+
+                  <div class="d-flex flex-column p-3 gap-3">
+                    <div class="d-flex gap-3">
+                      <p class="flex-1">Name</p>
+                      <p></p>
+                      <p class="flex-1"></p>
+                    </div>
+
+                    <div class="d-flex gap-3">
+                      <p class="flex-1">Phone</p>
+                      <p></p>
+                      <p class="flex-1"></p>
+                    </div>
+
+                    <div class="d-flex gap-3">
+                      <p class="flex-1">Relation</p>
+                      <p></p>
+                      <p class="flex-1"></p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <!-- Right  Side -->
-              <div>
-                <h1>Emergency Contact</h1>
+              <!-- Action Buttons -->
+              <div class="d-flex justify-content-end border-t p-3 gap-3">
+                <button class="btn-outline-primary" type="button">
+                  <i class="fa-solid fa-eye"></i>
+                  View Details
+                </button>
+
+                <button class="btn-primary" type="button">
+                  <i class="fa-solid fa-pen"></i>
+                  Edit
+                </button>
+
+                <button class="btn-danger" type="button">
+                  <i class="fa-solid fa-trash"></i>
+                  Delete
+                </button>
               </div>
             </div>
           </div>
-        </div>
+        </section>
 
-        <aside class="w-1/3 overflow-hidden">
+        <aside class="p-4 w-1/3 bg-white overflow-hidden rounded-md">
           <form class="h-100 d-flex flex-column gap-3 overflow-y" action="">
+            <div class="students-icon">
+              <h1 class="text-xl">Add New Record</h1>
+            </div>
+
             <div class="d-flex flex-column gap-2">
-              <label class="label" for="student_id">Student id</label>
+              <label class="label" for="student_id">Student ID</label>
               <input class="input" type="text" id="student_id" name="student_id" required />
             </div>
 
             <div class="d-flex flex-column gap-2">
-              <label class="label" for="staff_id">Staff id</label>
+              <label class="label" for="staff_id">Staff ID</label>
               <input class="input" type="text" id="staff_id" name="staff_id" required />
             </div>
 
             <div class="d-flex flex-column gap-2">
-              <label class="label" for="blood_type">Blood type</label>
+              <label class="label" for="blood_type">Blood Type</label>
               <input class="input" type="text" id="blood_type" name="blood_type" required />
             </div>
 
             <div class="d-flex flex-column gap-2">
-              <label class="label" for="Allergies">Allergies</label>
-              <input class="input" type="text" id="Allergies" name="Allergies" required />
+              <label class="label" for="allergies">Allergies</label>
+              <input class="input" type="text" id="allergies" name="allergies" required />
             </div>
 
             <div class="d-flex flex-column gap-2">
               <label class="label" for="medical_condition">Medical Condition</label>
-              <input class="input" type="text" id="medical_condition" name="medical-condition" required />
+              <input class="input" type="text" id="medical_condition" name="medical_condition" required />
             </div>
 
             <div class="d-flex flex-column gap-2">
@@ -163,12 +231,12 @@
             </div>
 
             <div class="d-flex flex-column gap-2">
-              <label class="label" for="emergency_contact_name">Emergency Contact name</label>
+              <label class="label" for="emergency_contact_name">Emergency Contact Name</label>
               <input class="input" type="text" id="emergency_contact_name" name="emergency_contact_name" required />
             </div>
 
             <div class="d-flex flex-column gap-2">
-              <label class="label" for="emergency_contact_no">Emergency Contact no</label>
+              <label class="label" for="emergency_contact_no">Emergency Contact Number</label>
               <input class="input" type="text" id="emergency_contact_no" name="emergency_contact_no" required />
             </div>
 
@@ -185,22 +253,20 @@
 
             <div class="d-flex flex-column gap-2">
               <label class="label" for="notes">Notes</label>
-              <input class="input" type="text" id="notes" name="notes" required />
+              <textarea class="input" id="notes" name="notes" required></textarea>
             </div>
 
             <div class="d-flex flex-column gap-2">
-              <label class="label" for="status">Status:</label>
+              <label class="label" for="status">Status</label>
               <select class="select" id="status" name="status" required>
                 <option value="">Select Status</option>
-                <option value="Available">Available</option>
-                <option value="Low Stock">Low Stock</option>
-                <option value="Out of Stock">Out of Stock</option>
-                <option value="Expired">Expired</option>
+                <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
               </select>
             </div>
 
-            <div class="d-flex flex-column">
-              <button class="btn-primary w-100" type="submit">Save Medical Item</button>
+            <div class="d-flex flex-column gap-2">
+              <button class="btn-primary w-100" type="submit">Save Health Record</button>
               <button class="btn-ghost w-100" type="reset">Clear Form</button>
             </div>
           </form>

@@ -63,33 +63,123 @@
     </aside>
 
     <div class="w-100 d-flex flex-column gap-4">
-      <header class="header__h-13 border border-light-gray rounded-md"></header>
+      <header class="header__h-13 border border-light-gray rounded-md">
+        <h1 class="text-xl p-5">School Year</h1>
+      </header>
 
-      <main class="p-5 border border-light-gray rounded-md">
-        <section class="h-128 d-flex flex-row gap-5">
-          <article class="d-flex flex-column flex-1 border p-5 border-light-gray rounded-md shadow-md">
-            <h3 class="text-lg">Staff</h3>
-          </article>
-          <article class="d-flex flex-column flex-1 border p-5 border-light-gray rounded-md shadow-md">
-            <h3 class="text-lg">School Year</h3>
-          </article>
-          <article class="d-flex flex-column flex-1 border p-5 border-light-gray rounded-md shadow-md">
-            <h3 class="text-lg">Start Date</h3>
-          </article>
-          <article class="d-flex flex-column flex-1 border p-5 border-light-gray rounded-md shadow-md">
-            <h3 class="text-lg">End Date</h3>
-          </article>
+      <main class="p-5 main-container__h-87 d-flex flex-row border bg-accent border-light-gray rounded-md gap-5">
+<div class="d-flex min-h-screen">
 
-          <article class=" d-flex flex-column flex-1 border p-5 border-light-gray rounded-md shadow-md">
-            <h3 class="text-lg">Is Active</h3>
-          </article>
-        </section>
+  <!-- SIDEBAR -->
 
-        <section>
-          <form>
+
+
+  </aside>
+  <main class="d-flex flex-1 flex-column gap-4 p-4">
+    <!-- HEADER -->
+    <header class="d-flex justify-between bg- align-center p-4 border rounded">
+
+      <div class="d-flex flex-column">
+        <h1 class="text-xl">School Year</h1>
+      </div>
+
+      <div class="d-flex align-center gap-3">
+        <button type="button">Notifications</button>
+        <button type="button">Profile</button>
+      </div>
+
+    </header>
+
+
+    <!-- SCHOOL YEAR MANAGEMENT -->
+    <section class="d-flex flex-row gap-4 border rounded p-4">
+
+      <!-- SECTION HEADER -->
+      <div class="d-flex flex-column justify-between align-center">
+
+        <h2 class="text-xl">School Year Management</h2>
+
+        <button type="button" class="btn btn-primary">
+          + Add School Year
+        </button>
+
+      </div>
+
+
+      <!-- SUMMARY CARDS -->
+      <div class="d-flex flex-row gap-3 w-100">
+
+        <article class="flex-1 d-flex flex-column gap-3 p-4 border rounded">
+          <h3>Staff</h3>
+          <p></p>
+        </article>
+
+        <article class="flex-1 d-flex flex-column gap-3 p-4 border rounded">
+          <h3>School Year</h3>
+          <p></p>
+        </article>
+
+        <article class="flex-1 d-flex flex-column gap-3 p-4 border rounded">
+          <h3>Start Date</h3>
+          <p></p>
+        </article>
+
+        <article class="flex-1 d-flex flex-column gap-3 p-4 border rounded">
+          <h3>End Date</h3>
+          <p></p>
+        </article>
+
+        <article class="flex-1 d-flex flex-column gap-3 p-4 border rounded">
+          <h3>Is Active</h3>
+          <p></p>
+        </article>
+
+      </div>
+
+      
+
+      <!-- SCHOOL YEAR TABLE -->
+      </div>
+    </section>
+
+            <aside class=" p-4 w-1/3 bg-warning overflow-hidden rounded-md">
+          <form class="h-100 d-flex flex-column gap-3 overflow-y" action="">
+            <div class="students-icon">
+              <h1 class="text-xl">Add School Year</h1>
+            </div>
+
+            <div class="d-flex flex-column gap-2">
+              <label class="label" for="staff">Staff</label>
+              <input class="input" type="text" id="staff" name="staff" required />
+            </div>
+
+            <div class="d-flex flex-column gap-2">
+              <label class="label" for="school-year">School year</label>
+              <input class="input" type="text" id="school_year" name="school_year" required />
+            </div>
+
+            <div class="d-flex flex-column gap-2">
+              <label class="label" for="start_date">Start date</label>
+              <input class="input" type="text" id="start_date" name="start_date" required />
+            </div>
+
+            <div class="d-flex flex-column gap-2">
+              <label class="label" for="end_date">End date</label>
+              <input class="input" type="text" id="end_date" name="end_date" required />
+            </div>
+
+            <div class="d-flex flex-column gap-2">
+              <label class="label" for="is_active">Is active</label>
+              <input class="input" type="text" id="is_active" name="is_active" required />
+            </div>
+
             
           </form>
-        </section>
+        </aside>
+  </main>
+
+</div>
+
       </main>
     </div>
   </body>

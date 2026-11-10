@@ -59,8 +59,13 @@
     </aside>
 
     <div class="w-100 d-flex flex-column gap-4">
-      <header class="header__h-13 border border-light-gray rounded-md">
-        <h3 class="p-3 text-lg">Medical Item</h3>
+      <header class="px-5 header__h-13 d-flex flex-row items-center justify-between bg-white border border-light-gray rounded-md">
+        <h3 class="p-3 text-xl">Medical Item</h3>
+
+        <form class="w-320 bg-light border border-light-gray d-flex flex-row rounded-md" action="">
+          <input class="input" type="text" name="search" id="search" placeholder="Search account..." />
+          <button class="btn-ghost"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
       </header>
 
       <main class="p-5 main-container__h-87 d-flex flex-row gap-5 border border-light-gray rounded-md">

@@ -1,42 +1,17 @@
-const express = require("express");
+const { Router } = require("express");
 
-const {
-  createAccountController,
-  findAllAccountsController,
-  findAccountByIdController,
-  updateAccountController,
-  deleteAccountController,
-} = require("../controllers/accounts-controller.js");
+const authenticate = require("../middleware/authenticate.js");
+const accountsController = require("../controller/accounts-controller.js");
 
-const router = express.Router();
+const router = Router();
 
+router.use(authenticate);
 
-router.post(
-  "/",
-  createAccountController
-);
-
-
-router.get(
-  "/",
-  findAllAccountsController
-);
-
-
-router.get(
-  "/:id",
-  findAccountByIdController
-);
-
-
-router.put(
-  "/:id",
-  updateAccountController
-);
-
-router.delete(
-  "/:id",
-  deleteAccountController
-);
-
+router.get("/", accountsController.findAllAccounts);
+router.get("/:id", accountsController.findAccountById);
+router.get("/:username", accountsController.findAccountByUsername);
+router.post("/", accountsController.createAccount);
+router.put("/:id", accountsController.updateAccount);
+router.delete("/:id", accountsController.deleteAccount);
+    
 module.exports = router;

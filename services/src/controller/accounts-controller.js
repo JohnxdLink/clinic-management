@@ -1,6 +1,5 @@
 const { StatusCodes, ReasonPhrases } = require("http-status-codes");
 const accountService = require("../services/accounts-service.js");
-c;
 
 const createAccount = async (req, res) => {
   try {
@@ -23,7 +22,7 @@ const createAccount = async (req, res) => {
 
 const findAllAccounts = async (req, res) => {
   try {
-    const accounts = await findAllAccounts();
+    const accounts = await accountService.findAllAccounts();
 
     return res.status(StatusCodes.OK).json({
       status: StatusCodes.OK,
@@ -42,7 +41,7 @@ const findAccountById = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const account = await findAccountById(id);
+    const account = await accountService.findAccountById(id);
 
     if (!account) {
       return res.status(StatusCodes.NOT_FOUND).json({
@@ -68,7 +67,7 @@ const findAccountByUsername = async (req, res) => {
   try {
     const { username } = req.params;
 
-    const account = await findAccountByUsername(username);
+    const account = await accountService.findAccountByUsername(username);
 
     if (!account) {
       return res.status(StatusCodes.NOT_FOUND).json({
@@ -95,7 +94,7 @@ const updateAccount = async (req, res) => {
     const { id } = req.params;
     const { username, password } = req.body;
 
-    const result = await updateAccount(id, username, password);
+    const result = await accountService.updateAccount(id, username, password);
 
     if (result.affectedRows === 0) {
       return res.status(StatusCodes.NOT_FOUND).json({
@@ -121,7 +120,7 @@ const deleteAccount = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const result = await deleteAccount(id);
+    const result = await accountService.deleteAccount(id);
 
     if (result.affectedRows === 0) {
       return res.status(StatusCodes.NOT_FOUND).json({

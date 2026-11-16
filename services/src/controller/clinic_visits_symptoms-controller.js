@@ -1,5 +1,5 @@
 const { StatusCodes, ReasonPhrases } = require("http-status-codes");
-const clinicVisitsSymptomsService = require("../services/clinic_visit_symptoms-service.js");
+const clinicVisitsSymptomsService = require("../services/clinic_visits_symptoms-service.js");
 
 const createClinicVisitSymptom = async (req, res) => {
   try {
@@ -71,7 +71,7 @@ const findClinicVisitSymptomsByVisitId = async (req, res) => {
   try {
     const { clinic_visit_id } = req.params;
 
-    const result = await findClinicVisitSymptomsByVisitIdService.findClinicVisitSymptomsByVisitId(clinic_visit-id);
+    const result = await findClinicVisitSymptomsByVisitIdService.findClinicVisitSymptomsByVisitId(clinic_visit - id);
     if (!result) {
       return res.status(StatusCodes.NOT_FOUND).json({
         success: false,

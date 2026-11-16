@@ -59,15 +59,86 @@
     </aside>
 
     <div class="w-100 d-flex flex-column gap-4">
-      <header class="header__h-13 border border-light-gray rounded-md"></header>
+      <header class="header__h-13 border border-light-gray rounded-md">
+        <h1 class="text-xl p-5">Grade & Strand</h1>
+      </header>
 
-      <main class="main-container__h-87 border border-light-gray rounded-md">
-        <section>
-          <article></article>
-          <article></article>
-          <article></article>
-          <article></article>
-        </section>
+      <main class="d-flex flex-row p-5 main-container__h-87 border border-light-gray rounded-md">
+        <div class="d-flex">
+
+  <!-- SIDEBAR -->
+  </aside>
+  <main class="d-flex flex-1 flex-column gap-4 p-4">
+    <!-- HEADER -->
+    <header class="d-flex flex-row justify-between align-center p-4 border rounded">
+
+      <div class="d-flex flex-column">
+        <h1 class="text-xl">Grade & Strand</h1>
+      </div>
+
+      <div class="d-flex align-center gap-3">
+        <button type="button">Notifications</button>
+        <button type="button">Profile</button>
+      </div>
+
+    </header>
+
+
+    <!-- SCHOOL YEAR MANAGEMENT -->
+      <main class="p-5 main-container__h-87 d-flex flex-row gap-5 border border-light-gray rounded-md">
+        <div class="gap-5 border rounded-md">
+          <div class="table-wrapper">
+            <table class="table">
+              <thead>
+                <th>Id</th>
+                <th>Grade level</th>
+                <th>Start date</th>
+                <th>End date</th>
+                <th>Is active</th>
+              </thead>
+            </table>
+          </div>
+        </div>
+      
+
+      <!-- SCHOOL YEAR TABLE -->
+      </div>
+    </section>
+
+            <aside class=" p-4 w-1/3 bg-warning overflow-hidden rounded-md">
+          <form class="h-100 d-flex flex-column gap-3 overflow-y" action="">
+            <div class="students-icon">
+              <h1 class="text-xl">Strand</h1>
+            </div>
+
+            <div class="d-flex flex-column gap-2">
+              <label class="label" for="staff">Id</label>
+              <input class="input" type="text" id="id" name="id" required />
+            </div>
+
+            <div class="d-flex flex-column gap-2">
+              <label class="label" for="school-year">Grade level</label>
+              <input class="input" type="text" id="school_year" name="school_year" required />
+            </div>
+
+            <div class="d-flex flex-column gap-2">
+              <label class="label" for="start_date">Start date</label>
+              <input class="input" type="text" id="start_date" name="start_date" required />
+            </div>
+
+            <div class="d-flex flex-column gap-2">
+              <label class="label" for="end_date">End date</label>
+              <input class="input" type="text" id="end_date" name="end_date" required />
+            </div>
+
+            <div class="d-flex flex-column gap-2">
+              <label class="label" for="is_active">Is active</label>
+              <input class="input" type="text" id="is_active" name="is_active" required />
+            </div>
+
+            
+          </form>
+        </aside>
       </main>
     </div>
   </body>

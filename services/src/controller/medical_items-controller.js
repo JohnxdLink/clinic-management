@@ -2,12 +2,19 @@ const { StatusCodes, ReasonPhrases } = require("http-status-codes");
 
 const medicalItemsService = require("../services/medical_items-service.js");
 
-
 const createMedicalItem = async (req, res) => {
   try {
-    const {item_name,category,unit,quantity,reorder_level,expiration_date,status,} = req.body;
+    const { item_name, category, unit, quantity, reorder_level, expiration_date, status } = req.body;
 
-    const result = await medicalItemsService.createMedicalItem(item_name,category,unit,quantity,reorder_level,expiration_date,status);
+    const result = await medicalItemsService.createMedicalItem(
+      item_name,
+      category,
+      unit,
+      quantity,
+      reorder_level,
+      expiration_date,
+      status,
+    );
 
     return res.status(StatusCodes.CREATED).json({
       success: true,
@@ -23,7 +30,6 @@ const createMedicalItem = async (req, res) => {
     });
   }
 };
-
 
 const findAllMedicalItems = async (req, res) => {
   try {
@@ -43,7 +49,6 @@ const findAllMedicalItems = async (req, res) => {
     });
   }
 };
-
 
 const findMedicalItemById = async (req, res) => {
   try {
@@ -73,13 +78,11 @@ const findMedicalItemById = async (req, res) => {
   }
 };
 
-
 const findMedicalItemByName = async (req, res) => {
   try {
     const { item_name } = req.params;
 
-    const result =
-      await medicalItemsService.findMedicalItemByName(item_name);
+    const result = await medicalItemsService.findMedicalItemByName(item_name);
 
     if (!result) {
       return res.status(StatusCodes.NOT_FOUND).json({
@@ -103,14 +106,22 @@ const findMedicalItemByName = async (req, res) => {
   }
 };
 
-
 const updateMedicalItem = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const {item_name,category,unit,quantity,reorder_level,expiration_date,status,} = req.body;
+    const { item_name, category, unit, quantity, reorder_level, expiration_date, status } = req.body;
 
-    const result = await medicalItemsService.updateMedicalItem(id,item_name,category,unit,quantity,reorder_level,expiration_date,status);
+    const result = await medicalItemsService.updateMedicalItem(
+      id,
+      item_name,
+      category,
+      unit,
+      quantity,
+      reorder_level,
+      expiration_date,
+      status,
+    );
 
     if (!result) {
       return res.status(StatusCodes.NOT_FOUND).json({
@@ -133,7 +144,6 @@ const updateMedicalItem = async (req, res) => {
     });
   }
 };
-
 
 const deleteMedicalItem = async (req, res) => {
   try {

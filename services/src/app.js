@@ -8,6 +8,9 @@ const { StatusCodes, ReasonPhrases } = require("http-status-codes");
 const db = require("./config/database.js");
 const authRoutes = require("./routes/auth-routes.js");
 const accountsRoutes = require("./routes/accounts-routes.js");
+const healthFacilitiesRoutes = require("./routes/health_facilities-routes.js");
+const medicalItemsRoutes = require("./routes/medical_items-routes.js");
+const schoolYearRoutes = require("./routes/school_year-routes.js");
 
 const app = express();
 
@@ -57,6 +60,9 @@ app.get("/api/health/db", async (req, res) => {
 
 app.use("/api", authRoutes);
 app.use("/api/accounts", accountsRoutes);
+app.use("/api/health_facilities", healthFacilitiesRoutes);
+app.use("/api/medical_items", medicalItemsRoutes);
+app.use("/api/school_year", schoolYearRoutes);
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(PROJECT_ROOT, "index.html"));

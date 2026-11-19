@@ -57,17 +57,7 @@ const FIND_SCHOOL_YEAR_BY_YEAR = `
 
 // READ - Get active school year
 const FIND_ACTIVE_SCHOOL_YEAR = `
-  SELECT
-    sy.id ,
-    sy.staff_id,
-    sy.school_year,
-    sy.start_date,
-    sy.end_date,
-    sy.is_active,
-    sy.created_at,
-    sy.updated_at
-  FROM school_years AS sy
-  WHERE sy.is_active = 1
+  z
 `;
 
 // UPDATE

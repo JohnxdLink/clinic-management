@@ -2,12 +2,11 @@ const { StatusCodes, ReasonPhrases } = require("http-status-codes");
 
 const schoolYearsService = require("../services/school_years-service.js");
 
-
 const createSchoolYear = async (req, res) => {
   try {
-    const {staff_id,school_year,start_date,end_date,is_active,} = req.body;
+    const { staff_id, school_year, start_date, end_date, is_active } = req.body;
 
-    const result = await schoolYearsService.createSchoolYear(staff_id,school_year,start_date,end_date,is_active);
+    const result = await schoolYearsService.createSchoolYear(staff_id, school_year, start_date, end_date, is_active);
 
     return res.status(StatusCodes.CREATED).json({
       success: true,
@@ -43,7 +42,6 @@ const findAllSchoolYears = async (req, res) => {
   }
 };
 
-
 const findSchoolYearById = async (req, res) => {
   try {
     const { id } = req.params;
@@ -72,13 +70,11 @@ const findSchoolYearById = async (req, res) => {
   }
 };
 
-
 const findSchoolYearByYear = async (req, res) => {
   try {
     const { school_year } = req.params;
 
-    const result =
-      await schoolYearsService.findSchoolYearByYear(school_year);
+    const result = await schoolYearsService.findSchoolYearByYear(school_year);
 
     if (!result) {
       return res.status(StatusCodes.NOT_FOUND).json({
@@ -101,7 +97,6 @@ const findSchoolYearByYear = async (req, res) => {
     });
   }
 };
-
 
 const findActiveSchoolYear = async (req, res) => {
   try {
@@ -129,14 +124,20 @@ const findActiveSchoolYear = async (req, res) => {
   }
 };
 
-
 const updateSchoolYear = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const {staff_id,school_year,start_date,end_date,is_active,} = req.body;
+    const { staff_id, school_year, start_date, end_date, is_active } = req.body;
 
-    const result = await schoolYearsService.updateSchoolYear(id,staff_id,school_year,start_date,end_date,is_active);
+    const result = await schoolYearsService.updateSchoolYear(
+      id,
+      staff_id,
+      school_year,
+      start_date,
+      end_date,
+      is_active,
+    );
 
     if (!result) {
       return res.status(StatusCodes.NOT_FOUND).json({
@@ -159,7 +160,6 @@ const updateSchoolYear = async (req, res) => {
     });
   }
 };
-
 
 const deleteSchoolYear = async (req, res) => {
   try {

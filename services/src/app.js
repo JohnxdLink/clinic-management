@@ -16,9 +16,43 @@ const app = express();
 
 const PROJECT_ROOT = path.join(__dirname, "../..");
 
-app.use(helmet());
+const allowedOrigins = [
+  "http://127.0.0.1:5500",
+  "http://localhost:5500",
+  "http://127.0.0.1:3000",
+  "http://localhost:3000",
+];
 
-app.use(cors());
+// Helmet configuration
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+
+        connectSrc: ["'self'", "http://localhost:3000", "http://127.0.0.1:3000"],
+
+        styleSrc: ["'self'", "'unsafe-inline'", "https://cdnjs.cloudflare.com"],
+
+        fontSrc: ["'self'", "data:", "https://cdnjs.cloudflare.com"],
+
+        imgSrc: ["'self'", "data:", "https:"],
+
+        scriptSrc: ["'self'"],
+      },
+    },
+  }),
+);
+
+// CORS configuration
+app.use(
+  cors({
+    origin: allowedOrigins,
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  }),
+);
 
 app.use(express.json());
 
@@ -31,7 +65,7 @@ app.use(express.static(PROJECT_ROOT));
 app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 
 app.get("/api/health", (req, res) => {
-  res.status(200).json({
+  res.status(StatusCodes.OK).json({
     success: true,
     service: "backend",
     status: "online",

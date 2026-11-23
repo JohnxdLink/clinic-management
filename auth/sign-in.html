@@ -7,40 +7,71 @@
     <link rel="stylesheet" href="../assets/css/style.css" />
     <link rel="stylesheet" href="../assets/css/pages/sign-in.css" />
   </head>
+
   <body class="w-100 h-screen d-flex flex-column items-center justify-between bg-warning">
     <header class="d-flex flex-1"></header>
+
     <main class="p-5 w-1/2 h-512 d-flex flex-row bg-white shadow border border-light-gray shadow-lg rounded-lg gap-5">
       <section class="d-flex flex-1">
         <img src="../assets/images/illustrations/sign-in.svg" alt="" />
       </section>
 
-      <form class="d-flex flex-1 flex-column items-start gap-2">
-        <a class="btn-outline" href="../index.html"> <span class="fa-solid fa-circle-arrow-left"></span>Return</a>
+      <form id="sign-in-form" class="d-flex flex-1 flex-column items-start gap-2">
+        <a class="btn-outline" href="../index.html">
+          <span class="fa-solid fa-circle-arrow-left"></span>
+          Return
+        </a>
+
         <div class="w-100 h-100 d-flex flex-column gap-5">
           <div class="w-100 d-flex flex-column items-center justify-center gap-3">
             <img class="w-96 h-auto" src="../assets/images/logo/britech-logo.png" alt="" />
-            <p class="text-center text-gray">Clinic Modern Information And <br />Services System</p>
-          </div>
-          <div>
-            <label class="label" for="">Username</label>
-            <input class="mt-1 input" type="text" name="" id="" placeholder="Enter username" required />
+            <p class="text-center text-gray">
+              Clinic Modern Information And <br />
+              Services System
+            </p>
           </div>
 
           <div>
-            <label class="label" for="">Password</label>
-            <input class="mt-1 input" type="password" name="" id="" placeholder="Enter password" required />
+            <label class="label" for="username">Username</label>
+            <input
+              class="mt-1 input"
+              type="text"
+              name="username"
+              id="username"
+              placeholder="Enter username"
+              autocomplete="username"
+              required
+            />
           </div>
+
+          <div>
+            <label class="label" for="password">Password</label>
+            <input
+              class="mt-1 input"
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Enter password"
+              autocomplete="current-password"
+              required
+            />
+          </div>
+
+          <p id="error-message" role="alert"></p>
         </div>
 
-        <button class="w-100 btn-primary">Sign In</button>
+        <button type="submit" id="sign-in-button" class="w-100 btn-primary">Sign In</button>
       </form>
     </main>
 
     <footer class="w-100 d-flex flex-column justify-end flex-1">
       <p class="p-4 text-sm bg-warning-light">
-        <span class="fa-solid text-warning-info fa-triangle-exclamation"></span> This system is restricted to authorized
-        personnel of Britech College. Unauthorized access is strictly prohibited.
+        <span class="fa-solid text-warning-info fa-triangle-exclamation"></span>
+        This system is restricted to authorized personnel of Britech College. Unauthorized access is strictly
+        prohibited.
       </p>
     </footer>
+
+    <script type="module" src="../assets/js/pages/sign-in.js"></script>
   </body>
 </html>
